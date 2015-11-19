@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/padrao.xhtml">
+	<ui:define name="conteudo">
+
+		<div id="cadastrado">
+			<br /> 
+			<h3 align="center" style="background-color: black; color: white;">
+				<br /> <b>Já cadastrado</b>
+			</h3>
+			<br></br>
+			<h:panelGrid rendered="#{!sessaoMB.estaLogado()}">
+
+			<style>
+				.form_login {
+					width: 180px;
+					float: left;
+				}
+			</style>
+				<div class="form_login">
+					<h:form class="form-horizontal">
+						<h:messages />
+
+						<div class="form-group" style="margin-left: 20%;">
+							<label for="exampleInputEmail1">Email:</label>
+							<h:inputText class="form-control" id="exampleInputEmail1"
+								placeholder="Email" style="width: 80%"
+								value="#{sessaoMB.usuarioForm.email}" />
+						</div>
+						<div class="form-group" style="margin-left: 20%;">
+							<label for="exampleInputPassword1">Senha</label>
+							<h:inputSecret class="form-control" id="exampleInputPassword1"
+								placeholder="Password" style="width: 80%"
+								value="#{sessaoMB.usuarioForm.senha}" />
+						</div>
+						<div class="form-group" style="margin-left: 20%;">
+							<button type="submit" class="btn btn-default"
+								style="background-color: black; color: white">
+								<b>Limpar</b>
+							</button>
+							<h:commandButton type="submit" class="btn btn-default"
+								action="#{sessaoMB.entrar()}"
+								style="margin-left: 29%; background-color: black; color: white"
+								value="Entrar" />
+						</div>
+					</h:form>
+				</div>
+
+			</h:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

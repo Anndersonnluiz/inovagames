@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+<ui:composition template="/WEB-INF/templates/padrao.xhtml">
+	<ui:define name="conteudo">
+				
+					
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne" style="background-color: orange" >
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion"
+								href="#collapseOne" aria-expanded="true"
+								aria-controls="collapseOne" style="color:black;"> <b>Pesquisar</b> </a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body">
+							<h:form>
+						<h:messages />
+						<h:panelGrid columns="7" style="margin-left: 30%;">
+							<h:selectOneMenu id="plataforma_id"
+								value="#{plataformaBean.plataforma.plataforma}">
+								<f:selectItem itemLabel="Plataforma" itemValue="plataforma" />
+								<f:selectItem itemLabel="Ps4" itemValue="Ps4" />
+								<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+								<f:selectItem itemLabel="Ps3" itemValue="Ps3" />
+								<f:selectItem itemLabel="Xbox 360" itemValue="Xbox 360" />
+								<f:selectItem itemLabel="Ps Vita" itemValue="Ps Vita" />
+								<f:selectItem itemLabel="3ds" itemValue="3ds" />
+								<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+							</h:selectOneMenu>
+							
+								<h:selectOneMenu id="produtos_id"
+								value="#" style="margin-left: 50px;">
+								<f:selectItem itemLabel="Produtos" itemValue="produtos" />
+								<f:selectItem itemLabel="Acessórios" itemValue="acessorios" />
+								<f:selectItem itemLabel="Jogos" itemValue="jogos" />
+							</h:selectOneMenu>
+							
+							<h:selectOneMenu id="precos_id"
+								value="#" style="margin-left: 50px;">
+								<f:selectItem itemLabel="Preços" itemValue="precos" />
+								<f:selectItem itemLabel="Menor Preço" itemValue="menorPreco" />
+								<f:selectItem itemLabel="Maior Preço" itemValue="maiorPreco" />
+							</h:selectOneMenu>
+							
+							<h:commandLink title="Pesquisar" style="margin-left: 300px;" class="" action="#">
+								<img src="img/pesquisar.png" width="50px;" height="50px" />
+							</h:commandLink>	
+						</h:panelGrid>
+					</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br/>
+		<div id="corpoDoSitePlataforma">
+			<div id="topicoPlataforma">
+
+				<h3 align="center">Jogos e Acessorios</h3>
+
+			</div>
+			<br />
+			<div class="row" style="width: 50%;">
+				<div class="col-sm-6 col-md-4" >
+					<div class="thumbnail">
+						<img src="img/batman.jpg" alt="..."/>
+						<div class="caption" >
+							<b>Batman</b>
+							<p>
+								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> <a
+									href="#" class="btn btn-default" role="button" style="font-size: 8px;"><b>Detalhes</b></a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4" >
+					<div class="thumbnail">
+						<img src="img/ps4-just_dance_2015-capa (Copy).jpg" alt="..."/>
+						<div class="caption" >
+							<b>Batman</b>
+							<p>
+								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> <a
+									href="#" class="btn btn-default" role="button" style="font-size: 8px;"><b>Detalhes</b></a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4" >
+					<div class="thumbnail">
+						<img src="img/ps4-just_dance_2015-capa (Copy).jpg" alt="..."/>
+						<div class="caption" >
+							<b>Batman</b>
+							<p>
+								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> <a
+									href="#" class="btn btn-default" role="button" style="font-size: 8px;"><b>Detalhes</b></a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4" >
+					<div class="thumbnail">
+						<img src="img/ps4-just_dance_2015-capa (Copy).jpg" alt="..."/>
+						<div class="caption" >
+							<b>Batman</b>
+							<p>
+								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> <a
+									href="#" class="btn btn-default" role="button" style="font-size: 8px;"><b>Detalhes</b></a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4" >
+					<div class="thumbnail">
+						<img src="img/ps4-just_dance_2015-capa (Copy).jpg" alt="..."/>
+						<div class="caption" >
+							<b>Batman</b>
+							<p>
+								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> <a
+									href="#" class="btn btn-default" role="button" style="font-size: 8px;"><b>Detalhes</b></a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4" >
+					<div class="thumbnail">
+						<img src="img/ps4-just_dance_2015-capa (Copy).jpg" alt="..."/>
+						<div class="caption" >
+							<b>Batman</b>
+							<p>
+								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> <a
+									href="#" class="btn btn-default" role="button" style="font-size: 8px;"><b>Detalhes</b></a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4" >
+					<div class="thumbnail">
+						<img src="img/ps4-just_dance_2015-capa (Copy).jpg" alt="..."/>
+						<div class="caption" >
+							<b>Batman</b>
+							<p>
+								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> <a
+									href="#" class="btn btn-default" role="button" style="font-size: 8px;"><b>Detalhes</b></a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+
+	</ui:define>
+</ui:composition>
+</html>

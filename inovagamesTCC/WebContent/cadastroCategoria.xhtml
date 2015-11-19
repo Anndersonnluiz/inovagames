@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<!--  Latest compiled  and minified CSS -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+		
+	</script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<!-- Optional theme -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcnd.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+	<!-- JavaScript Latest  compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
+		
+	</script>
+	<title>DW Games Floripa</title>
+	<link href="css/estilo.css" rel="stylesheet" />
+</h:head>
+
+<h:form>
+	<div id="corpoDosite">
+		<div id="cabecalho1"></div>
+		<img src="img/hardline.jpg" height="150px" width="1138px" />
+		<h:body>
+			<div id="Menu1">
+				<ul>
+					<li><a href="http://localhost:8081/ProjetoPI/index.xhtml">Pagina
+							Inicial</a></li>
+					<li><h:commandLink value="Plataformas"
+							action="#{plataformaBean.novo}" /></li>
+					<li><h:commandLink value="Cadastre-se"
+							action="#{clienteBean.novo}" /></li>
+					<li><h:commandLink value="Compras" action="#{compraBean.novo}" /></li>
+					<li><h:commandLink value="Produtos"
+							action="#{produtoBean.novo}" /></li>
+				</ul>
+			</div>
+			<h:form>
+				<h:messages />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Categoria:" for="categoria_id" />
+					<h:selectOneMenu id="categoria_id"
+						value="#{categoriaBean.categoria.categoria}">
+						<f:selectItem itemLabel="Ação" itemValue="Ação" />
+						<f:selectItem itemLabel="Aventura" itemValue="Aventura" />
+						<f:selectItem itemLabel="Corrida" itemValue="Ps3" />
+						<f:selectItem itemLabel="Esportes" itemValue="Corrida" />
+						<f:selectItem itemLabel="Luta" itemValue="Luta" />
+						<f:selectItem itemLabel="RPG" itemValue="RPG" />
+						<f:selectItem itemLabel="Infantil" itemValue="Infantil" />
+						<f:selectItem itemLabel="Musical" itemValue="Musical" />
+						<f:selectItem itemLabel="Estrategia" itemValue="Estrategia" />
+
+					</h:selectOneMenu>
+
+
+					<h:commandButton value="Voltar" action="#{categoriaBean.voltar}"
+						immediate="true" />
+					<h:commandButton value="Cadastrar" action="#{categoriaBean.salvar}" />
+
+				</h:panelGrid>
+			</h:form>
+
+			<br></br>
+			<br></br>
+
+
+
+		</h:body>
+
+
+	</div>
+
+	<div id="rodape">
+		<ul>
+		</ul>
+	</div>
+</h:form>
+</html>

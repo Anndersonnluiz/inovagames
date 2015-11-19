@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>DW Games Floripa</title>
+	<link href="css/estilo.css" rel="stylesheet" />
+</h:head>
+<h:body>
+	<h:form>
+		<div id="menu">
+			<ul>
+<li><h:commandLink value="Clientes" action="#{clienteBean.novo}" /></li>
+
+				<li><h:commandLink value="Compras" action="#{compraBean.novo}" /></li>
+				<li><h:commandLink value="Produtos" action="#{produtoBean.novo}" /></li>
+				<li><h:commandLink value="Plataforma" action="#{plataformaBean.novo}" /></li>
+				<li><h:commandLink value="Categoria" action="#{categoriaBean.novo}" /></li>
+			</ul>
+		</div>
+	</h:form>
+	<h:form>
+		<h:messages />
+		<h:dataTable border="1" value="#{categoriaBean.categorias}"
+			var="categoria">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Categoria" />
+				</f:facet>
+				<h:outputText value="#{categoria.categoria}" />
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{categoriaBean.alterar}" value="Alterar"
+					title="Alterar">
+					<f:setPropertyActionListener
+						target="#{categoriaBean.categoriaSelecionado}"
+						value="#{categoria}" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+
+				<h:commandLink action="#{categoriaBean.excluir}" value="Excluir"
+					title="Excluir">
+					<f:setPropertyActionListener
+						target="#{categoriaBean.categoriaSelecionado}"
+						value="#{categoria}" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

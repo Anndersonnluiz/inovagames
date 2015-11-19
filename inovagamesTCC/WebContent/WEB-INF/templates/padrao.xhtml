@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<!--  Latest compiled  and minified CSS -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+		
+	</script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<!-- Optional theme -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcnd.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+	<!-- JavaScript Latest  compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
+		
+	</script>
+	<title>...:::INOVA GAMES:::...</title>
+	<link rel="icon" href="img/iconetitulo.jpg" type="image/x-icon" />
+	<link href="css/estilo.css" rel="stylesheet" />
+</h:head>
+<h:body>
+<h:form>
+		<!-- rolando o titulo da pagina -->
+		<script> var repeat=1 // 0 para rolar uma vez, 1 para rolar infinitamente
+		var title=document.title
+		var leng=title.length
+		var start=1
+		function titlemove() {
+		titl=title.substring(start, leng) + title.substring(0, start)
+		document.title=titl
+		start++
+		if (start==leng+1) {
+		start=0
+		if (repeat==0)
+		return
+		}
+		setTimeout("titlemove()",300)  // aqui vc pode aumentar ou diminuir a velocidade 
+		}
+		if (document.title)
+		titlemove()
+		</script>
+		
+		
+		
+	<div id="corpoDosite">
+		<div id="cabecalho1">
+		<img src="img/logo.jpg" height="150px" width="20%" />
+		</div>
+		<div class="menu">	
+			
+			<nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="http://localhost:8081/inovagamesTCC/index.xhtml">Pagina Inicial</a>
+			    </div>
+			    
+			    <div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><h:link outcome="/cadastroPlataforma">Jogos e Acessorios</h:link></li>
+						<li class="active" ><h:link outcome="/login" rendered="#{!sessaoMB.estaLogado()}">Entrar</h:link></li>
+					</ul>
+					<h:panelGroup rendered="#{sessaoMB.estaLogado()}">
+						<h:form>
+							<ul class="nav navbar-nav navbar-right">
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-haspopup="true"
+									aria-expanded="false">Menu <span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><h:commandLink action="#{sessaoMB.sair()}">Sair</h:commandLink></li>
+									</ul></li>
+							</ul>
+
+						</h:form>
+					</h:panelGroup>
+
+				</div>
+			  </div><!-- /.container-fluid -->
+			</nav>
+			
+		</div>
+			
+			<div id="conteudo">
+				<ui:insert name="conteudo">
+					<h1>Inova Games</h1>
+				</ui:insert>
+			</div>
+
+		
+		<br/><br/><br/><br/><br/><br/>
+	<div id="rodape" >
+		<ul></ul>	
+	</div>
+	</div>
+	
+</h:form>
+</h:body>
+</html>

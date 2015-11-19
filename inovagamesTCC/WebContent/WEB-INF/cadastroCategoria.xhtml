@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>DW Games Floripa</title>
+	<link href="css/estilo.css" rel="stylesheet" />
+</h:head>
+<h:body>
+	<h:form>
+	<div id="cabecalho1">
+		<ul>
+		</ul>
+	</div>
+		<div id="menu">
+			<ul>
+			<li><h:commandLink value="Cadastro" action="#{clienteBean.novo}" /></li>
+
+				<li><h:commandLink value="Compras" action="#{compraBean.novo}" /></li>
+				<li><h:commandLink value="Produtos"
+						action="#{produtoBean.novo}" /></li>
+				<li><h:commandLink value="Plataforma"
+						action="#{plataformaBean.novo}" /></li>
+				<li><h:commandLink value="Categoria"
+						action="#{categoriaBean.novo}" /></li>
+			</ul>
+		</div>
+	</h:form>
+	<h:form>
+		<h:messages />
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Categoria:" for="categoria_id" />
+			<h:selectOneMenu id="categoria_id"
+				value="#{categoriaBean.categoria.categoria}">
+				<f:selectItem itemLabel="Ação" itemValue="Ação" />
+				<f:selectItem itemLabel="Aventura" itemValue="Aventura" />
+				<f:selectItem itemLabel="Corrida" itemValue="Ps3" />
+				<f:selectItem itemLabel="Esportes" itemValue="Corrida" />
+				<f:selectItem itemLabel="Luta" itemValue="Luta" />
+				<f:selectItem itemLabel="RPG" itemValue="RPG" />
+				<f:selectItem itemLabel="Infantil" itemValue="Infantil" />
+				<f:selectItem itemLabel="Musical" itemValue="Musical" />
+				<f:selectItem itemLabel="Estrategia" itemValue="Estrategia" />
+
+			</h:selectOneMenu>
+
+
+			<h:commandButton value="Voltar" action="#{categoriaBean.voltar}"
+				immediate="true" />
+			<h:commandButton value="Cadastrar" action="#{categoriaBean.salvar}" />
+
+		</h:panelGrid>
+	</h:form>
+</h:body>
+<div id="rodape">
+	<ul>
+	</ul>
+</div>
+</html>

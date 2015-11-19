@@ -1,0 +1,481 @@
+#Menu1 ul {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	width: 1138px;
+	background-color: black;
+	list-style: none;
+	position: relative;
+}
+
+#cadastrado{
+	background-color: orange;
+	width: 30%;
+	border-radius: 12px;
+}
+
+#cabecalho1 ul {
+	width: auto;
+	height: 150px;
+	margin: 0px;
+	
+}
+
+#rodape ul {
+	background-color: orange;
+	margin: auto;
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	border-radius:2px;
+	display: block;
+}
+
+
+* {
+list-style-type:none;
+font-family: Arial;
+margin:0;
+padding:0;
+}
+
+html, body {height:100%;}
+
+#Menu1 ul li {
+	display: inline;
+}
+
+#Menu1 ul li a {
+	background-color: bLack;
+	color: white;
+	text-decoration: none;
+	border-bottom: 3px solid black;
+	padding: 2px 10px;
+	float: left;
+}
+
+#Menu1 ul li a:hover {
+	background-color: #363636;
+	color: white;
+	border-bottom: 3px solid #FFA500;
+}
+
+#corpoDosite {
+	margin: auto;
+	padding: 0px;
+	width: 1138px;
+	min-height:100%;
+	position:relative;
+	
+}
+
+#conteudo{
+	overflow:hidden;
+}
+
+img.ca-ie {
+	filter: alpha(opacity = 65);
+}
+
+body {
+	margin: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: auto;
+	left: auto;
+	background-attachment: fixed;	
+	background-color: #778899;
+}
+
+#faleConosco{
+	float:left;
+	display: block;
+	color:black;
+}
+
+#lojaVirtual{
+	float:left;
+	display: block;
+	color:black;
+	padding-left: 20px;
+	
+}
+
+#formasDePagamento{
+	float:left;
+	display: block;
+	color:black;
+	padding-left: 20px;
+	
+}
+
+#Compartilhe{
+	float:left;
+	display: block;
+	color:black;
+	padding-left: 20px;
+	
+}
+
+#ajusteCompartilhe{
+	height: 30px;
+}
+
+#nomedoSite{
+	float:right;
+	color:black;
+	display: block;
+}
+
+
+.botao img {
+	display: block;
+	float: left;
+	width:120px;
+	height:150px;
+	
+}
+
+#jogosEmDestaque{
+	padding-left: 25px;
+	display: block;
+}
+
+#jogosplataforma{
+	padding-left: 50px;
+	display: block;
+}
+
+
+
+
+strike{
+	color: gray;
+}
+
+ p{
+	background-color: #eaedf2;
+	border-top-style: double;
+	padding-top: 20px;
+}
+
+
+#categoriaPlataforma{
+	float: left;
+	background-color: white;
+	height:100%;
+	display: block;
+	border-style: double;
+	border-radius:10px;
+	width: 100%;
+}
+
+#corpoDoSitePlataforma{
+	float:left;
+	background-color: white;
+	height:100%;
+	display: block;
+	border-style: double;
+	width:100%;
+	border-radius:10px;
+}
+
+
+#topicoPlataforma{
+	color: black;
+	background-color: orange;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#fundoAzul{
+	color: white;
+	background-color: blue;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#verdeClaro{
+	color: white;
+	background-color:#32CD32;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#verdeEscuro{
+	color: white;
+	background-color:green;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#fundoAzulClaro{
+	color: black;
+	background-color:#00FFFF;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#fundoVermelho{
+	color: black;
+	background-color:#FF0000;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	
+}
+
+
+.botao a:hover { 
+float:left;
+color:#999;
+               }
+
+
+
+#conteudoSite {
+	width: 1138px;
+	background-color: green;
+}
+
+#titDestaques {
+	background: #373834;
+	width: 100px;
+	height: 25px;
+	line-height: 25px;
+	margin: -10px auto 10px;
+	padding: 0 10px;
+	color: #FFF;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	position: relative;
+}
+
+#titLancamentos {
+	background: #373834;
+	width: 120px;
+	height: 25px;
+	line-height: 25px;
+	margin: -10px auto 10px;
+	padding: 0 10px;
+	color: #FFF;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	position: relative;
+	display: block;
+}
+
+
+
+
+#formulario {
+	float: right;
+}
+
+/* div fundo branca*/
+#middle {
+	position: relative;
+	overflow: hidden;
+	zoom: 1;
+	z-index: 0;
+	padding: 20px 60px;
+	background-color: #FFF;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0 0 5px 0 #AEAEAE;
+	box-shadow: 0 0 10px 0 #AEAEAE;
+	margin-top: -35px !important;
+	width: 900px !important;
+}
+/* div cinza dentro do ja sou cadastrado*/
+.identification .content form {
+	background: #EDEDED;
+	padding: 25px;
+	height: 285px;
+	border-radius: 15px;
+}
+/* div cinza dentro do quero me cadastrar*/
+.identification .content1 {
+	background: #EDEDED;
+	padding: 25px;
+	height: 285px;
+	border-radius: 15px;
+}
+/* poicao da lentra dentro da div ja sou cadastrado*/
+.identification h4 {
+	margin-bottom: 20px
+}
+
+.identification .safe {
+	clear: both
+}
+
+.identification .options {
+	float: none;
+	overflow: hidden
+}
+/* poicao da lentra dentro da div ja sou cadastrado*/
+.identification .info {
+	overflow: hidden
+}
+/* ja sou cadastrado*/
+.identification .info .signin {
+	float: right
+}
+/* quero me cadastrar*/
+.identification .info .signup {
+	float: left
+}
+
+.identification div small a {
+	color: #000;
+	text-decoration: underline
+}
+
+.identification fieldset {
+	background: none;
+	padding: 0 10px 10px 10px;
+	-position: static !important;
+	-display: block
+}
+
+.identification label {
+	display: block;
+	margin: 4.30px 0 0 0;
+	font-weight: bold
+}
+
+.identification form span {
+	display: inline;
+	margin-left: 5px
+}
+
+.identification .continue {
+	padding: 10px;
+	width: 130px;
+	overflow: hidden;
+	float: none !important;
+	margin-right: 0 !important
+}
+
+.default-value {
+	color: #999 !important
+}
+
+/* divs quero me cadastrar e cadastro*/
+.identification .title {
+	position: relative;
+	font-weight: bold;
+	color: #FFF;
+	display: block;
+	float: left;
+	font-size: 16px;
+	line-height: 40px;
+	height: 36px;
+	background: #333;
+	padding: 0 95px;
+	width: auto;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	border-radius: 10px 10px 0 0;
+	*line-height: 34px;
+}
+
+/* EXEMPLO PARA BOTAR UM SUBMENU Daniel!!!!!!!!!!!!!!!! 
+	
+	
+	<div class="menu1">
+				<ul class="menu-list1">
+					<li><a href="http://localhost:8081/ProjetoPI/index.xhtml">Pagina
+							Inicial</a></li>
+					<li><h:commandLink value="Plataformas"
+							action="#{plataformaBean.novo}" />
+						<ul class="sub-menu1">
+							<h:selectOneMenu id="plataforma_id"
+								value="#{plataformaBean.plataforma.plataforma}">
+								<f:selectItem itemLabel="Ps4" itemValue="Ps4" />
+								<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+								<f:selectItem itemLabel="Ps3" itemValue="Ps3" />
+								<f:selectItem itemLabel="Xbox 360" itemValue="Xbox 360" />
+								<f:selectItem itemLabel="Ps Vita" itemValue="Ps Vita" />
+								<f:selectItem itemLabel="3ds" itemValue="3ds" />
+								<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+							</h:selectOneMenu>
+						</ul></li>
+					<li><h:commandLink value="Cadastro"
+							action="#{clienteBean.novo}" /></li>
+					<li><h:commandLink value="Compras" action="#{compraBean.novo}" /></li>
+					<li><h:commandLink value="Produtos"
+							action="#{produtoBean.novo}" /></li>
+				</ul>
+			</div>
+			*/
+
+/*CSS*/
+
+/* Reset CSS 
+*, *:after, *:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	font-size: 14px;
+	line-height: 1.3;
+}
+*/
+/* Fundo do menu 
+#menu {
+	background: #000;
+}
+*/
+/* Remove as bolinhas do lado das listas 
+.menu1 .menu-list1, .menu1 .sub-menu1 {
+	list-style: none;
+}
+
+ Faz os <li>s ficarem na horizontal
+.menu1>.menu-list1>li {
+	float: left;
+	position: relative;
+}
+ Configura os links do menu principal 
+.menu1>.menu-list1>li>a {
+	padding: 5px;
+	margin: 0 5px;
+	background: #000;
+}
+
+ Mostra o submenu no evento de mouse hover 
+.menu1>.menu-list1>li:hover>.sub-menu1 {
+	display: block;
+}
+Configura o estilo do submenu 
+.menu1>.menu-list1>li>.sub-menu1 {
+	position: absolute;
+	top: 30.60px;
+	left: 5px;
+	background: white;
+	display: none;
+}
+
+ Clearfix para o menu 
+.menu1:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+*/
