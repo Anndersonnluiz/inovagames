@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.Produto;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.ProdutoRN;
 
-@ManagedBean(name = "produtoBean")
+@ManagedBean
 @SessionScoped
 public class ProdutoMB {
 	private Produto produto;

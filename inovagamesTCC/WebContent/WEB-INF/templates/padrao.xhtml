@@ -74,6 +74,7 @@
 					<ul class="nav navbar-nav">
 						<li class="active"><h:link outcome="/cadastroPlataforma">Jogos e Acessorios</h:link></li>
 						<li class="active" ><h:link outcome="/login" rendered="#{!sessaoMB.estaLogado()}">Entrar</h:link></li>
+						<li class="active"><h:link outcome="/administradores">Administracao</h:link></li>
 					</ul>
 					<h:panelGroup rendered="#{sessaoMB.estaLogado()}">
 						<h:form>
@@ -104,10 +105,48 @@
 		
 		<br/><br/><br/><br/><br/><br/>
 	<div id="rodape" >
-		<ul></ul>	
+		<br/>
+		<a type="button"  data-toggle="modal" data-target="#myModal" style="margin-left: 2%;"> Fale Conosco </a>
+		
+		<br/><br/><br/><br/><br/>
+			<b style="margin-left: 40%;">&copy; Todos os direitos reservados. &reg;</b>	
 	</div>
 	</div>
 	
+	
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Mande um recado para inova games</h4>
+	      </div>
+	      <div class="modal-body">
+	         <form class="form-horizontal">
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+				    <div class="col-sm-10">
+				      <input type="email" class="form-control" id="inputEmail3" />
+				    </div>
+				  </div>
+				  <br/><br/>
+				  <div class="form-group">
+				    <label  class="col-sm-2 control-label">Descricao</label>
+				    <div class="col-sm-10">
+				      <textarea class="form-control" rows="3"></textarea>
+				    </div>
+				  </div>
+				<br/><br/><br/> 		  
+			</form>
+	      </div>
+	      <div class="modal-footer">
+			<button type="submit" class="btn btn-default">Enviar</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+				   
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </h:form>
 </h:body>
 </html>
