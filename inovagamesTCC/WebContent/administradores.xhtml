@@ -8,17 +8,30 @@
 
 <ui:composition template="/WEB-INF/templates/padrao.xhtml">
 	<ui:define name="conteudo">
-	   <div id="corpoDoSitePlataforma">
-	   
-	   		<div>
-	  			<h:outputLabel value="Nome:"/>
-	  			<h:inputText value="#"/>
-	  		</div>
-	  		<div>
-	  			<h:outputLabel value="Valor:"/>
-	  			<h:inputText value="#"/>
-	  		</div>		
-	   </div>
+	   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne" style="background-color: orange" >
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion"
+								href="#collapseOne" aria-expanded="true"
+								aria-controls="collapseOne" style="color:black;"> <b>Cadastro de produtos</b> <span class="caret"></span> </a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body">
+							<h:form>
+								<h:messages />
+								<div class="form-group" style="margin-left: 2%; ">
+									<h:outputLabel value="Nome:"/>
+									<h:inputText value="#" size="20"/>
+								</div>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
 	</ui:define>
 </ui:composition>
 </html>
