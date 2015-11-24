@@ -8,6 +8,7 @@
 
 <ui:composition template="/WEB-INF/templates/padrao.xhtml">
 	<ui:define name="conteudo">
+	<h:messages />
 	   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingOne" style="background-color: orange" >
@@ -20,10 +21,34 @@
 					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 						<div class="panel-body">
 							<h:form>
-								<h:messages />
+								
 								<div class="form-group" style="margin-left: 2%; ">
 									<h:outputLabel value="Nome:"/>
-									<h:inputText value="#" size="20"/>
+									<br/>
+									<h:inputText value="#{produtoMB.produto.nome}" size="40"/>
+								</div>
+								<div class="form-group" style="margin-left: 2%; ">
+									<h:outputLabel value="Valor:"/>
+									<br/>
+									<h:inputText value="#{produtoMB.produto.valor}" size="40" />
+								</div>
+								<div class="form-group" style="margin-left: 2%; ">
+									<h:outputLabel value="Descricao:"/>
+									<br/>
+									<h:inputTextarea value="#{produtoMB.produto.descricao}" style="width: 29%;"/>
+								</div>
+								<div class="form-group" style="margin-left: 2%">
+									<h:outputLabel value="Foto:"/>
+									<h:inputFile value="#"/>
+									<h:graphicImage styleClass="img-responsive" name="#"/>
+									<h:inputHidden value="#"/>
+								</div>
+								<div class="form-group" style="margin-left: 2%;">
+								<h:commandButton type="submit" class="btn btn-default" action="#"
+												style=" background-color: black; color: white" value="Salvar"/>
+									<button type="submit" class="btn btn-default" 
+											style=" background-color: black; color: white; margin-left: 8%;">Limpar</button>
+										
 								</div>
 							</h:form>
 						</div>
