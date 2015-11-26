@@ -16,9 +16,31 @@
     <param-value>Development</param-value>
   </context-param>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.xhtml</welcome-file>
   </welcome-file-list>
+  <!-- Parametros de upload -->
+	<context-param>
+		<param-name>upload_path</param-name>
+		<param-value>img/upload/</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>servidor</param-name>
+		<param-value>localhost</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>banco</param-name>
+		<param-value>inovagamesTCC</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>usuario</param-name>
+		<param-value>root</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>senha</param-name>
+		<param-value></param-value>
+	</context-param>
 </web-app>

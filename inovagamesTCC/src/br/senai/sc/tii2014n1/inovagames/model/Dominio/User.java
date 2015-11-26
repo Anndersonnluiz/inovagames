@@ -4,11 +4,27 @@ public class User {
 
 	private String email;
 	private String senha;
+	private String tipoAcesso;
+	
 	
 	public User(){
 		
 	}
 	
+	
+	
+	public String getTipoAcesso() {
+		return tipoAcesso;
+	}
+
+
+
+	public void setTipoAcesso(String tipoAcesso) {
+		this.tipoAcesso = tipoAcesso;
+	}
+
+
+
 	public String getEmail() {
 		return email;
 	}
@@ -25,10 +41,11 @@ public class User {
 		this.senha = senha;
 	}
 
-	public User(String email, String senha) {
+	public User(String email, String senha, String tipoAcesso) {
 		super();
 		this.email = email;
 		this.senha = senha;
+		this.tipoAcesso = tipoAcesso;
 	}
 	
 	

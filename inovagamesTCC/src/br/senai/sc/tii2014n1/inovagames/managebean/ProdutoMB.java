@@ -97,8 +97,15 @@ public class ProdutoMB {
 		return "";
 		
 	}
-
-	public String voltar() {
-		return "listarProdutos";
+	
+	public String Salvar(){
+		try {
+			produtoRN.salvar(produto);
+			return "";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
+
 }

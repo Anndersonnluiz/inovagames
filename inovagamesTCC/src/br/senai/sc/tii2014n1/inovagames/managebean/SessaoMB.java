@@ -49,4 +49,16 @@ public class SessaoMB {
 		return usuarioLogado != null;
 	}
 	
+	public Boolean tipoAcesso(){
+		
+		
+		
+			if (usuarioLogado.getTipoAcesso().equalsIgnoreCase("master")) {
+				return usuarioLogado !=null;
+			}
+		
+		return null;
+		
+	}
+	
 }

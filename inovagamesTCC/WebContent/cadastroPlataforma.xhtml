@@ -68,16 +68,19 @@
 
 			</div>
 			<br />
-			<div class="row" style="width: 200%; margin-left: 0.5%;">
+			
+		<div class="row" style="width: 200%; margin-left: 0.5%;">
+			<ui:repeat var="produto" value="#{produtoMB.produtos}">
 				<div class="col-sm-6 col-md-1" >
 					<div class="thumbnail">
 						<img src="img/batman.jpg" alt="..."/>
 						<div class="caption" >
-							<b>Batman</b>
+							<b><h:outputText value="#{produto.nome}"/></b>
 							<p>
-								<strike><b>De: R$ 159,90</b></strike>
+								<h:outputText value="#{produto.descricao}"/>
 								<br/>
-								<b>Por: R$ 129,90</b>
+								<b>R$: <h:outputText value="#{produto.valor}"/></b>
+								
 							</p>
 							<p>
 								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
@@ -90,369 +93,26 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/ps4-just_dance_2015-capa (Copy).jpg" alt="..."/>
-						<div class="caption" >
-							<b>Just Dance</b>
-							<p>
-								<strike><b>De: R$ 99,90</b></strike>
-								<br/>
-								<b>Por: R$ 59,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/assassins rogue xbox 360.jpg" width="90%;" alt="..."/>
-						<div class="caption" >
-							<b>Assassins Rogue</b>
-							<p>
-								<strike><b>De: R$ 109,90</b></strike>
-								<br/>
-								<b>Por: R$ 89,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/UFC ONE.jpg"  alt="..."/>
-						<div class="caption" >
-							<b>UFC</b>
-							<p>
-								<strike><b>De: R$ 149,90</b></strike>
-								<br/>
-								<b>Por: R$ 99,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/witcher.jpg" alt="..."/>
-						<div class="caption" >
-							<b>The witcher</b>
-							<p>
-								<strike><b>De: R$ 129,90</b></strike>
-								<br/>
-								<b>Por: R$ 89,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/battlefield.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Battlefield</b>
-							<p>
-								<strike><b>De: R$ 109,90</b></strike>
-								<br/>
-								<b>Por: R$ 89,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				</div>
-				<div class="row" style="width: 200%; margin-left: 0.5%;">
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/Bloodborne-ps4.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Bloodborne</b>
-							<p>
-								<strike><b>De: R$ 159,90</b></strike>
-								<br/>
-								<b>Por: R$ 99,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/GTA 5 PS4.jpg" alt="..."/>
-						<div class="caption" >
-							<b>GTA V</b>
-							<p>
-								<strike><b>De: R$ 129,90</b></strike>
-								<br/>
-								<b>Por: R$ 99,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/PES 15 XBOX 360.jpg" alt="..."/>
-						<div class="caption" >
-							<b>PES 2015</b>
-							<p>
-								<strike><b>De: R$ 199,90</b></strike>
-								<br/>
-								<b>Por: R$ 149,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/mortalKombatX.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Mortal Kombat X</b>
-							<p>
-								<strike><b>De: R$ 199,90</b></strike>
-								<br/>
-								<b>Por: R$ 159,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								 <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/alien-isolation-ps4_6rj3 (Copy).jpg" alt="..."/>
-						<div class="caption" >
-							<b>Alien Isolation</b>
-							<p>
-								<strike><b>De: R$ 99,90</b></strike>
-								<br/>
-								<b>Por: R$ 59,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								 <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/Beyond Two Souls.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Beyond</b>
-							<p>
-								<strike><b>De: R$ 79,90</b></strike>
-								<br/>
-								<b>Por: R$ 59,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row" style="width: 200%; margin-left: 0.5%;">
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/controlePs4Camu.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Controle PS4</b>
-							<p>
-								<strike><b>De: R$ 199,90</b></strike>
-								<br/>
-								<b>Por: R$ 129,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								 <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/FIFA16.png" alt="..."/>
-						<div class="caption" >
-							<b>Fifa 16</b>
-							<p>
-								<strike><b>De: R$ 229,90</b></strike>
-								<br/>
-								<b>Por: R$ 189,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/halo xbox one.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Halo</b>
-							<p>
-								<strike><b>De: R$ 119,90</b></strike>
-								<br/>
-								<b>Por: R$ 99,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/Cars2_PS3.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Cars 2</b>
-							<p>
-								<strike><b>De: R$ 99,90</b></strike>
-								<br/>
-								<b>Por: R$ 39,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/sinper.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Sniper</b>
-							<p>
-								<strike><b>De: R$ 199,90</b></strike>
-								<br/>
-								<b>Por: R$ 159,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-1" >
-					<div class="thumbnail">
-						<img src="img/1Ace Combat Assault Horizon.jpg" alt="..."/>
-						<div class="caption" >
-							<b>Assault Horizon</b>
-							<p>
-								<strike><b>De: R$ 99,90</b></strike>
-								<br/>
-								<b>Por: R$ 59,90</b>
-							</p>
-							<p>
-								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
-								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
-								  <b>detalhes</b>
-								</a>
-
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			
+				</ui:repeat>
+		</div>
 		</div>
 
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Informações</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Informações</h4>
+	      </div>
+	      <div class="modal-body">
+	        ...
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	</ui:define>
 </ui:composition>
 </html>

@@ -37,14 +37,9 @@
 									<br/>
 									<h:inputTextarea value="#{produtoMB.produto.descricao}" style="width: 29%;"/>
 								</div>
-								<div class="form-group" style="margin-left: 2%">
-									<h:outputLabel value="Foto:"/>
-									<h:inputFile value="#"/>
-									<h:graphicImage styleClass="img-responsive" name="#"/>
-									<h:inputHidden value="#"/>
-								</div>
+								
 								<div class="form-group" style="margin-left: 2%;">
-								<h:commandButton type="submit" class="btn btn-default" action="#"
+								<h:commandButton type="submit" class="btn btn-default" action="#{produtoMB.salvar()}"
 												style=" background-color: black; color: white" value="Salvar"/>
 									<button type="submit" class="btn btn-default" 
 											style=" background-color: black; color: white; margin-left: 8%;">Limpar</button>
