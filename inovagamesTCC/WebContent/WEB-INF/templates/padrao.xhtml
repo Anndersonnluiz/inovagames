@@ -51,7 +51,17 @@
 		
 	<div id="corpoDosite">
 		<div id="cabecalho1">
-		<img src="img/logo.jpg" height="150px" width="20%" />
+		<img src="img/logo.jpg" height="150px" width="20%">
+			<h:outputLabel value="Email:"/>
+			<h:inputText  value="#{sessaoMB.usuarioForm.email}" size="20" />
+			<h:outputLabel value="Senha:"/>
+			<h:inputText value="#{sessaoMB.usuarioForm.senha}" size="20" />
+			<h:commandButton type="submit" class="btn btn-default"
+								action="#{sessaoMB.entrar()}"
+								value="Entrar" />
+			<br/>
+			<h:link outcome="/login" style="color:white;">Cadastre-se</h:link>
+		</img>
 		</div>
 		<div class="menu">	
 			
@@ -73,8 +83,7 @@
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active"><h:link outcome="/cadastroPlataforma">Jogos e Acessorios</h:link></li>
-						<li class="active" ><h:link outcome="/login" rendered="#{!sessaoMB.estaLogado()}">Entrar</h:link></li>
-						<li class="active"><h:link outcome="/administradores">Administracao</h:link></li>
+						<li class="active"><h:link outcome="/administradores" >Administracao</h:link></li>
 					</ul>
 					<h:panelGroup rendered="#{sessaoMB.estaLogado()}">
 						<h:form>

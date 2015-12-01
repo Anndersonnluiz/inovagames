@@ -50,15 +50,15 @@ public class SessaoMB {
 	}
 	
 	public Boolean tipoAcesso(){
-		
-		
-		
-			if (usuarioLogado.getTipoAcesso().equalsIgnoreCase("master")) {
-				return usuarioLogado !=null;
-			}
-		
+		UserRN userRN = new UserRN();
+		User usuarioBanco = userRN.buscaPorTipoAcesso(usuarioForm.getTipoAcesso());
+		if (usuarioBanco != null
+				&& getUsuarioForm().getTipoAcesso().equalsIgnoreCase(usuarioBanco.getTipoAcesso())) {
+			
+			usuarioLogado = usuarioBanco;
+			return usuarioLogado != null;
+		}
 		return null;
-		
 	}
 	
 }
