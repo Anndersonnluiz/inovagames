@@ -57,7 +57,32 @@
 		
 		<br/><br/>
 		
+		<b id="melhoresJogos">6 melhores jogos do mês</b>
+		<hr/>
 		
+		<div class="row" style="width: 200%; margin-left: 0.5%;">
+			<ui:repeat var="produtoLancamento" value="#{produtoLancamentoMB.produtoLancamentos}">
+				<div class="col-sm-6 col-md-1" >
+					<div class="thumbnail">
+						<img src="img/batman.jpg" alt="..."/>
+						<div class="caption" >
+							<b><h:outputText value="#{produtoLancamento.nome}"/></b>
+							<p>
+								<b>R$: <h:outputText value="#{produtoLancamento.valor}"/></b>
+							</p>
+							<p>
+								<a href="#" class="btn btn-primary" role="button" style="font-size: 8px;"><b>Compra</b></a> 
+								<a type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 8px;">
+								  <b>detalhes</b>
+								</a>
+
+
+							</p>
+						</div>
+					</div>
+				</div>
+				</ui:repeat>
+		</div>
 		
 		
 	</ui:define>

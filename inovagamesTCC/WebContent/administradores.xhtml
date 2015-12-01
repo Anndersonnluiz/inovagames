@@ -52,6 +52,43 @@
 				</div>
 			</div>
 			
+			<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne" style="background-color: orange" >
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion1"
+								href="#collapseOne1" aria-expanded="true"
+								aria-controls="collapseOne1" style="color:black;"> <b>Cadastro dos 6 melhores jogos</b> <span class="caret"></span> </a>
+						</h4>
+					</div>
+					<div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body">
+							<h:form>
+								
+								<div class="form-group" style="margin-left: 2%; ">
+									<h:outputLabel value="Nome:"/>
+									<br/>
+									<h:inputText value="#{produtoLancamentoMB.produtoLancamento.nome}" size="40"/>
+								</div>
+								<div class="form-group" style="margin-left: 2%; ">
+									<h:outputLabel value="Valor:"/>
+									<br/>
+									<h:inputText value="#{produtoLancamentoMB.produtoLancamento.valor}" size="40" />
+								</div>
+								
+								<div class="form-group" style="margin-left: 2%;">
+								<h:commandButton type="submit" class="btn btn-default" action="#{produtoLancamentoMB.salvar()}"
+												style=" background-color: black; color: white" value="Salvar"/>
+									<button type="submit" class="btn btn-default" 
+											style=" background-color: black; color: white; margin-left: 8%;">Limpar</button>
+										
+								</div>
+							</h:form>
+							
+						</div>
+					</div>
+				</div>
+			</div>
 			
 	</ui:define>
 </ui:composition>
