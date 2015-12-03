@@ -7,8 +7,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
-import br.senai.sc.tii2014n1.inovagames.model.Dominio.Produto;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.User;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.UserRN;
 

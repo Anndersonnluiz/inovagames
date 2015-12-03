@@ -21,9 +21,7 @@ public class ProdutoLancamentoMB {
 	@PostConstruct
 	public void init(){
 		produtoLancamentoRN = new ProdutoLancamentoRN();
-		if (produtoLancamento == null) {
 			produtoLancamento = new Produtolancamento();
-		}
 	}
 
 	public Produtolancamento getProdutoLancamento() {
@@ -35,11 +33,10 @@ public class ProdutoLancamentoMB {
 	}
 
 	public List<Produtolancamento> getProdutoLancamentos() {
+		if (produtoLancamentos == null) {
+			produtoLancamentos = produtoLancamentoRN.listar();
+		}
 		return produtoLancamentos;
-	}
-
-	public void setProdutoLancamentos(List<Produtolancamento> produtoLancamentos) {
-		this.produtoLancamentos = produtoLancamentos;
 	}
 	
 	

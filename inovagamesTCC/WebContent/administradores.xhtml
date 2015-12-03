@@ -40,9 +40,9 @@
 								
 								<div class="form-group" style="margin-left: 2%;">
 								<h:commandButton type="submit" class="btn btn-default" action="#{produtoMB.salvar()}"
-												style=" background-color: black; color: white" value="Salvar"/>
+												style=" background-color: black; color: white; margin-left: 11%;" value="Salvar"/>
 									<button type="submit" class="btn btn-default" 
-											style=" background-color: black; color: white; margin-left: 8%;">Limpar</button>
+											style=" background-color: black; color: white; margin-left: 5%;">Limpar</button>
 										
 								</div>
 							</h:form>
@@ -50,18 +50,16 @@
 						</div>
 					</div>
 				</div>
-			</div>
 			
-			<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingOne" style="background-color: orange" >
+					<div class="panel-heading" role="tab" id="heading2" style="background-color: orange" >
 						<h4 class="panel-title">
-							<a role="button" data-toggle="collapse" data-parent="#accordion1"
-								href="#collapseOne1" aria-expanded="true"
-								aria-controls="collapseOne1" style="color:black;"> <b>Cadastro dos 6 melhores jogos</b> <span class="caret"></span> </a>
+							<a role="button" data-toggle="collapse" data-parent="#accordion"
+								href="#collapse2" aria-expanded="true"
+								aria-controls="collapse2" style="color:black;"> <b>Cadastro dos 6 melhores jogos</b> <span class="caret"></span> </a>
 						</h4>
 					</div>
-					<div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					<div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
 						<div class="panel-body">
 							<h:form>
 								
@@ -78,12 +76,45 @@
 								
 								<div class="form-group" style="margin-left: 2%;">
 								<h:commandButton type="submit" class="btn btn-default" action="#{produtoLancamentoMB.salvar()}"
-												style=" background-color: black; color: white" value="Salvar"/>
+												style=" background-color: black; color: white; margin-left: 11%;" value="Salvar"/>
 									<button type="submit" class="btn btn-default" 
-											style=" background-color: black; color: white; margin-left: 8%;">Limpar</button>
+											style=" background-color: black; color: white; margin-left: 5%;">Limpar</button>
 										
 								</div>
 							</h:form>
+							
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="heading3" style="background-color: orange" >
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion"
+								href="#collapse3" aria-expanded="true"
+								aria-controls="collapse3" style="color:black;"> <b>Lista dos 6 melhores jogos</b> <span class="caret"></span> </a>
+						</h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+						<div class="panel-body">
+							<h:form>
+		<h:messages />
+		<h:dataTable border="1" value="#{produtoLancamentoMB.produtoLancamentos}"
+			var="produtoLancamento">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Jogos" />
+				</f:facet>
+				<h:outputText value="#{produtoLancamento.nome}" />
+			</h:column>
+	<h:column>
+				<h:commandLink action="#{plataformaBean.alterar}" value="Alterar"
+					title="Alterar">
+					<f:setPropertyActionListener
+						target="#{plataformaBean.plataformaSelecionado}" value="#{plataforma}" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
 							
 						</div>
 					</div>

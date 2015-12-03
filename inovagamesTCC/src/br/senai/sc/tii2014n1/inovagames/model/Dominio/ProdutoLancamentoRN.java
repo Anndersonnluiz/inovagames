@@ -1,5 +1,7 @@
 package br.senai.sc.tii2014n1.inovagames.model.Dominio;
 
+import java.util.List;
+
 import br.senai.sc.tii2014n1.inovagames.dao.ProdutoLancamentoDao;
 
 public class ProdutoLancamentoRN {
@@ -18,4 +20,8 @@ public class ProdutoLancamentoRN {
 		dao.salvar(produtoLancamento);
 		  
 	 }
+	
+	public List<Produtolancamento> listar(){
+		return dao.listarTodos();
+	}
 }
