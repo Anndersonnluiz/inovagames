@@ -16,6 +16,7 @@ public class ProdutoLancamentoDao extends DAO{
 	private final String INSERT = "INSERT INTO produtolancamento (nome, valor) VALUES (?,?)";
 	private final String UPDATE = "UPDATE produtolancamento SET nome = ?, valor = ?  WHERE id = ?";
 	private final String SELECT = "SELECT * FROM produtolancamento";
+	private final String DELETE = "DELETE FROM produtolancamento WHERE id = ?";
 	
 	public void salvar(Produtolancamento produtoLancamento){
 		try {
@@ -60,6 +61,18 @@ public class ProdutoLancamentoDao extends DAO{
 			getConnection();
 		}
 		return produtoLancamentos;
+	}
+	
+	public void excluir(Integer id) {
+		try {
+			PreparedStatement ps = getConnection().prepareStatement(DELETE);
+			ps.setLong(1, id);
+			ps.executeUpdate();
+		} catch (SQLException ex) {
+			System.out.println("Erro ao executar o delete: " + ex);
+		} finally {
+			getConnection();
+		}
 	}
 	
 	

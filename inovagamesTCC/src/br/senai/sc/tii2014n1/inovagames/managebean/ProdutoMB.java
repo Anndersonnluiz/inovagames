@@ -22,7 +22,10 @@ public class ProdutoMB {
 	@PostConstruct
 	public void init() {
 		produtoRN = new ProdutoRN();
-		produto = new Produto();
+		if (produto == null) {
+			produto = new Produto();
+		}
+		
 	}
 
 	public Produto getProduto() {
@@ -78,7 +81,7 @@ public class ProdutoMB {
 	public String alterar() {
 		produto = produtoSelecionado;
 		produtoSelecionado = null;
-		return "cadastroProduto";
+		return "administradores";
 	}
 
 	public String excluir(String idParam){

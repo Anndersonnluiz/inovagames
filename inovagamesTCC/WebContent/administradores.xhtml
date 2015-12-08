@@ -20,12 +20,12 @@
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 						<div class="panel-body">
-							<h:form>
+							<h:form id="tabelaCadastro">
 								
 								<div class="form-group" style="margin-left: 2%; ">
 									<h:outputLabel value="Nome:"/>
 									<br/>
-									<h:inputText value="#{produtoMB.produto.nome}" size="40"/>
+									<h:inputText id="nome" value="#{produtoMB.produto.nome}" size="40"/>
 								</div>
 								<div class="form-group" style="margin-left: 2%; ">
 									<h:outputLabel value="Valor:"/>
@@ -45,6 +45,7 @@
 											style=" background-color: black; color: white; margin-left: 5%;">Limpar</button>
 										
 								</div>
+								<h:link outcome="/listarProdutos" style="color:black;">Lista de produtos</h:link>
 							</h:form>
 							
 						</div>
@@ -81,6 +82,7 @@
 											style=" background-color: black; color: white; margin-left: 5%;">Limpar</button>
 										
 								</div>
+								<h:link outcome="/listaMelhoresjogos" style="color:black;">Lista de produtos</h:link>
 							</h:form>
 							
 						</div>
@@ -91,36 +93,16 @@
 						<h4 class="panel-title">
 							<a role="button" data-toggle="collapse" data-parent="#accordion"
 								href="#collapse3" aria-expanded="true"
-								aria-controls="collapse3" style="color:black;"> <b>Lista dos 6 melhores jogos</b> <span class="caret"></span> </a>
+								aria-controls="collapse3" style="color:black;"> <b>Lista de Clientes</b> <span class="caret"></span> </a>
 						</h4>
 					</div>
 					<div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
 						<div class="panel-body">
-							<h:form>
-		<h:messages />
-		<h:dataTable border="1" value="#{produtoLancamentoMB.produtoLancamentos}"
-			var="produtoLancamento">
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Jogos" />
-				</f:facet>
-				<h:outputText value="#{produtoLancamento.nome}" />
-			</h:column>
-	<h:column>
-				<h:commandLink action="#{plataformaBean.alterar}" value="Alterar"
-					title="Alterar">
-					<f:setPropertyActionListener
-						target="#{plataformaBean.plataformaSelecionado}" value="#{plataforma}" />
-				</h:commandLink>
-			</h:column>
-		</h:dataTable>
-	</h:form>
-							
+							<h:link outcome="/listaCliente" style="color:black;">Lista de Clientes</h:link>				
 						</div>
 					</div>
 				</div>
 			</div>
-			
 	</ui:define>
 </ui:composition>
 </html>

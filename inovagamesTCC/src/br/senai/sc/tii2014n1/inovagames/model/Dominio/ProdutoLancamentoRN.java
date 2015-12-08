@@ -24,4 +24,8 @@ public class ProdutoLancamentoRN {
 	public List<Produtolancamento> listar(){
 		return dao.listarTodos();
 	}
+	
+	public void excluir(Integer id) throws Exception{
+		dao.excluir(id);
+	}
 }

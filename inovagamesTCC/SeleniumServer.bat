@@ -95,8 +95,4 @@ public class ProdutoLancamentoMB {
 		
 	}
 	
-	public String voltar() {
-		return "administradores";
-	}
-	
 }
