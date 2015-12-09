@@ -35,17 +35,13 @@
 					<h:column>
 						<h:commandLink action="#{produtoMB.alterar}" value="Alterar"
 							title="Alterar" style="color:orange;">
-							<f:setPropertyActionListener
-								target="#{produtoMB.produtoSelecionado}" value="#{produto}" />
 						</h:commandLink>
 					</h:column>
 					<h:column>
 		
-						<h:commandLink action="#{produtoMB.excluir}" value="Excluir"
-							title="Excluir" style="color:orange;">
-							<f:setPropertyActionListener
-								target="#{produtoMB.produtoSelecionado}" value="#{produto}" />
-						</h:commandLink>
+						<h:commandLink action="#{produtoMB.excluir(produtos.idProduto)}" value="Excluir"
+							 style="color:orange;"/>
+					
 					</h:column>
 				</h:dataTable>
 			</h:form>

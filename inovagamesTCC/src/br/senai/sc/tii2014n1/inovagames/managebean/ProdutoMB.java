@@ -86,13 +86,12 @@ public class ProdutoMB {
 
 	public String excluir(String idParam){
 		int id = Integer.parseInt(idParam);
+		produtoRN.buscarPorId(id);
 		try {
 			produtoRN.excluir(id);
-			produtos.remove(produtoSelecionado);
-			produtoSelecionado = null;
 			FacesContext.getCurrentInstance().addMessage(
 					null,new FacesMessage(FacesMessage.SEVERITY_INFO,"Produto removido com sucesso!", ""));
-			return null;
+			return "";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

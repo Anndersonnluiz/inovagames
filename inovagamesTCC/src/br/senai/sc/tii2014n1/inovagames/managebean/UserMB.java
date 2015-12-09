@@ -52,6 +52,9 @@ public class UserMB {
 
 
 	public List<User> getUsers() {
+		if (users == null) {
+			users = userRN.listar();
+		} 
 		return users;
 	}
 

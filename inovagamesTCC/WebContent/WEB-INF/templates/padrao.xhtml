@@ -52,6 +52,7 @@
 	<div id="corpoDosite">
 		<div id="cabecalho1">
 		<img src="img/Untitled-1.jpg"  width="100%;"/>
+		<h:panelGrid rendered="#{!sessaoMB.estaLogado()}" columns="5">
 			<h:outputLabel value="Email:"/>
 			<h:inputText  value="#{sessaoMB.usuarioForm.email}" size="20" />
 			<h:outputLabel value="Senha:"/>
@@ -59,6 +60,7 @@
 			<h:commandButton type="submit" class="btn btn-default"
 								action="#{sessaoMB.entrar()}"
 								value="Entrar" />
+		</h:panelGrid>
 			<br/>
 			<h:link outcome="/login" style="color:white;">Cadastre-se</h:link>
 		</div>

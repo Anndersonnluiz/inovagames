@@ -11,18 +11,30 @@
 		<div style="background-color: white;">
 			<h:form >
 				<h:messages />
-				<h:dataTable class = "table table-listrado" border="1" value="#{produtoLancamentoMB.produtoLancamentos}" var="produtoLancamento" >
+				<h:dataTable class = "table table-listrado" border="1" value="#{userMB.users}" var="user" >
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="Nome:" />
 						</f:facet>
-						<h:outputText value="#{produtoLancamento.nome}" />
+						<h:outputText value="#{user.nome}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">
-							<h:outputText value="valor" />
+							<h:outputText value="e-mail" />
 						</f:facet>
-						<h:outputText value="#{produtoLancamento.valor}" />
+						<h:outputText value="#{user.email}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="CPF" />
+						</f:facet>
+						<h:outputText value="#{user.cpf}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Tipo de acesso" />
+						</f:facet>
+						<h:outputText value="#{user.tipoAcesso}" />
 					</h:column>
 					<h:column>
 						<h:commandLink action="#{produtoLancamentoMB.alterar}" value="Alterar"
@@ -32,7 +44,6 @@
 						</h:commandLink>
 					</h:column>
 					<h:column>
-		
 						<h:commandLink action="#{produtoLancamentoMB.excluir()}" value="Excluir"
 							title="Excluir" style="color:orange;">
 							<f:setPropertyActionListener
