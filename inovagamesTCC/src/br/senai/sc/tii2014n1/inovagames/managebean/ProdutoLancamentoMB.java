@@ -58,24 +58,19 @@ public class ProdutoLancamentoMB {
 		this.produtoLancamento = produtoLancamento;
 	}
 
+
+	
 	public String salvar() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		FacesMessage message = null;
 		try {
 			produtoLancamentoRN.salvar(produtoLancamento);
-			message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-					"Cadastro feito com sucesso!", "");
-			context.addMessage(null, message);
 			produtoLancamento = new Produtolancamento();
+			produtoLancamento = null;
 		} catch (Exception e) {
-			message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					e.getMessage(), "");
-			context.addMessage(null, message);
+			e.printStackTrace();
 		}
 
 		return null;
 
-	
 	}
 	
 	public String excluir(String idParam){
@@ -97,6 +92,16 @@ public class ProdutoLancamentoMB {
 	
 	public String voltar() {
 		return "administradores";
+	}
+	
+	public String Salvar(){
+		try {
+			produtoLancamentoRN.salvar(produtoLancamento);
+			return "";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
 	
 }

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/padrao.xhtml">
+	<ui:define name="conteudo">
+	<div id="corpoDoSitePlataforma">
+			<div id="topicoPlataforma">
+				<h3 align="center"><b>TIRE SUAS DUVIDAS</b></h3>
+			</div>
+			<br/><br/>
+   		 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne" style="background-color: orange" >
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion"
+								href="#collapseOne" aria-expanded="true"
+								aria-controls="collapseOne" style="color:black;"> <b>Procedimentos da compra</b> <span class="caret"></span> </a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body">
+							<b>Compra:</b> 
+								
+							<br/><br/>
+							<b>Pagamento:</b>
+							<br/><br/>
+							<b>Entrega:</b>
+						</div>
+					</div>
+				</div>
+			
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="heading2" style="background-color: orange" >
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion"
+								href="#collapse2" aria-expanded="true"
+								aria-controls="collapse2" style="color:black;"> <b>Formas de pagamentos</b> <span class="caret"></span> </a>
+						</h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+						<div class="panel-body">
+							Para sua segurança e conforto temos diversas formas de pagamento, para isso deixaremos
+							uma breve descrição de cada forma de pagamento que você deseja usar.
+							<br/><br/>
+							<b>Boleto:</b>
+							<br/>
+							<img src="img/boleto.png" alt="" />
+							De uma forma mais pratica você pode ser o pagamento em boleto e ainda por cima leva 20%
+							de desconto na hora da compra.
+							<br/><br/>
+							<b>Crédito:</b>
+							<br/>
+							<img src="img/masterCard.png" alt="" />
+							Com o cartão master card você pode parcela até 10x sem juros.
+							<br/><br/>
+							<img src="img/americanExpress.gif" alt="" />
+							Com o cartão american express em até 3x sem juros.
+							<br/><br/>
+							<img src="img/visa.png" alt="" />
+							Com o cartão visa você pode parcela até 12x sem juros.
+							<br/><br/>
+							<img src="img/hipercard.png" alt="" />
+							Com o cartão hipercard em até 3x sem juros.
+							<br/><br/>
+							<b>Parcelamento:</b>
+							<br/>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="heading3" style="background-color: orange" >
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion"
+								href="#collapse3" aria-expanded="true"
+								aria-controls="collapse3" style="color:black;"> <b>Prazos e entregas</b> <span class="caret"></span> </a>
+						</h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+						<div class="panel-body">
+							<b>Entrega:</b>
+							<br/><br/>
+							<img src="img/correios.jpg" alt="" width="120" />
+							<br/><br/>
+							<b>Prazos:</b>
+							<br/><br/>			
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+	</ui:define>
+</ui:composition>
+</html>

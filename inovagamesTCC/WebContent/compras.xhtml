@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/padrao.xhtml">
+	<ui:define name="conteudo">
+	    <div id="corpoDoSitePlataforma">
+				<div id="topicoPlataforma">
+	
+					<h3 align="center">Finalizando Compra</h3>
+	
+				</div>
+				<br />
+			<div class="panel-body">
+					<div id="cadastrado">
+						<br/>
+						<h3 align="center" style="background-color: black; color: white;">
+							<br/><b>Preencha o Formulário:</b>
+					    </h3>
+							<h:form>
+									<div class="form-group" style="margin-left: 2%; ">
+										<h:outputLabel value="Nome do cliente:"/>
+										<br/>
+										<h:outputText value="#{SessaoMB.usuarioLogado.nome}" size="40"/>
+									</div>
+									<div class="form-group" style="margin-left: 2%; ">
+										<h:outputLabel value="Nome do produto:"/>
+										<br/>
+										<h:outputText value="#{produtoMB.produto.nome}" size="40"/>
+									</div>
+									<div class="form-group" style="margin-left: 2%; ">
+										<h:outputLabel value="Valor:"/>
+										<br/>
+										R$: <h:outputText value="#{produtoMB.produto.valor}" size="40" />
+									</div>
+									<div class="form-group" style="margin-left: 2%; ">
+										<h:outputLabel value="Forma de Pagamento:"/>
+										<br/>
+										<h:selectBooleanCheckbox>Boleto</h:selectBooleanCheckbox>
+										<h:selectBooleanCheckbox>Crédito</h:selectBooleanCheckbox>
+										<h:selectBooleanCheckbox>Debito</h:selectBooleanCheckbox>
+									</div>
+									<div class="form-group" style="margin-left: 2%; ">
+										<h:outputLabel value="Parcelamento:"/>
+										<br/>
+									</div>
+									<div class="form-group" style="margin-left: 2%; ">
+										<h:outputLabel value="Calcular Frete:"/>
+										<br/>
+										CEP: <h:inputText/>
+										<br /><br />
+										R$: <h:outputText/>
+									</div>
+									<div class="form-group" style="margin-left: 2%; ">
+										<h:outputLabel value="Valor Total:"/>
+										<br/>
+										R$: <h:outputText/>
+									</div>
+							</h:form>
+							<br/>
+					</div>		
+				</div>
+			<div class="panel-body">
+				<div id="cadastrado">
+					<br/>
+					<h3 align="center" style="background-color: black; color: white;">
+						<br/><b>Crédito:</b>
+					  </h3>
+					<h:form>
+						<div class="form-group" style="margin-left: 2%; ">
+							<h:outputLabel value="Agência:"/>
+							<br/>
+							<h:inputText  value="#" size="4"/>
+						</div>
+						<div class="form-group" style="margin-left: 2%; ">
+							<h:outputLabel value="Conta:"/>
+							<br/>
+							<h:inputText value="#" size="10"/>
+						</div>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

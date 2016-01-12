@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.Produtolancamento;
-import br.senai.sc.tii2014n1.inovagames.model.Dominio.User;
 
 public class ProdutoLancamentoDao extends DAO{
 
@@ -19,14 +18,21 @@ public class ProdutoLancamentoDao extends DAO{
 	private final String DELETE = "DELETE FROM produtolancamento WHERE id = ?";
 	
 	public void salvar(Produtolancamento produtoLancamento){
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(INSERT);
-			ps.setString(1, produtoLancamento.getNome());
-			ps.setDouble(2, produtoLancamento.getValor());
-			ps.executeUpdate();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		
+			PreparedStatement ps;
+			try {
+				ps = getConnection().prepareStatement(INSERT);
+				ps.setString(1, produtoLancamento.getNome());
+				ps.setDouble(2, produtoLancamento.getValor());
+				ps.executeUpdate();
+			} catch (SQLException e) {
+				System.out.println("Erro ao executar o insert: " + e);
+				e.printStackTrace();
+			} finally {
+				getConnection();
+			}
+			
+		
 	}
 	
 	public void Editar(Produtolancamento produtoLancamento){

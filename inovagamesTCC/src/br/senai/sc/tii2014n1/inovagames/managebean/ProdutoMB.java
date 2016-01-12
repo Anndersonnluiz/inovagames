@@ -54,19 +54,12 @@ public class ProdutoMB {
 	}
 
 	public String salvar() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		FacesMessage message = null;
 		try {
 			produtoRN.salvar(produto);
-			message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-					"Produto cadastrado com sucesso!", "");
-			context.addMessage(null, message);
 			produto = new Produto();
 			produtos = null;
 		} catch (Exception e) {
-			message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					e.getMessage(), "");
-			context.addMessage(null, message);
+			e.printStackTrace();
 		}
 
 		return null;
@@ -81,14 +74,14 @@ public class ProdutoMB {
 	public String alterar() {
 		produto = produtoSelecionado;
 		produtoSelecionado = null;
-		return "administradores";
+		return "/administradores";
 	}
 
 	public String excluir(String idParam){
 		int id = Integer.parseInt(idParam);
-		produtoRN.buscarPorId(id);
 		try {
 			produtoRN.excluir(id);
+			produtos = null;
 			FacesContext.getCurrentInstance().addMessage(
 					null,new FacesMessage(FacesMessage.SEVERITY_INFO,"Produto removido com sucesso!", ""));
 			return "";

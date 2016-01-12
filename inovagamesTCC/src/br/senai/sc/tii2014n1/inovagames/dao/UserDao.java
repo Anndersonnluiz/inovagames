@@ -14,6 +14,7 @@ public class UserDao extends DAO{
 	private final String SELECT_ACESSO = "SELECT * FROM user WHERE tipoAcesso = master";
 	private final String SELECT = "SELECT * FROM user";
 	
+	
 	private User parseUser(ResultSet rs) throws SQLException {
 		User user = new User();
 		user.setEmail(rs.getString("email"));
@@ -94,4 +95,6 @@ public class UserDao extends DAO{
 		}
 		return users;
 	}
+	
+
 }

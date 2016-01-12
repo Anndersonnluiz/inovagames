@@ -21,6 +21,11 @@
 	
 }
 
+#divDireita{
+	margin-left: 30%;
+}
+
+
 #rodape  {
 	background-color: orange;
 	margin: auto;
@@ -83,8 +88,8 @@ body {
 	padding-right: 10px;
 	width: auto;
 	left: auto;
-	background-attachment: fixed;	
-	background-color: #778899;
+	background-attachment: fixed;
+	background-image: url(../img/espacoLaranja.jpg);
 }
 
 #faleConosco{
@@ -277,7 +282,7 @@ color:#999;
 }
 
 #melhoresJogos{
-	background-color: orange;
+	color: white;
 	font-size: large; 
 	font-family: sans-serif; 
 	margin-left: 40%;

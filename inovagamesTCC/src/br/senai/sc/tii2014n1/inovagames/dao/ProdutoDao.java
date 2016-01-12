@@ -12,7 +12,7 @@ public class ProdutoDao extends DAO {
 
 	private final String INSERT = "INSERT INTO produto (nome, valor, descricao) VALUES (?,?,?)";
 	private final String UPDATE = "UPDATE produto SET nome = ?, valor = ?, descricao = ?  WHERE idProduto = ?";
-	private final String DELETE = "DELETE FROM produto WHERE idProduto = ?";
+	private final String DELETE = "DELETE p FROM produto p WHERE p.idProduto = ?";
 	private final String SELECT = "SELECT * FROM produto";
 	private final String SELECT_ID = "SELECT * FROM produto WHERE idProduto = ?";
 
@@ -23,8 +23,6 @@ public class ProdutoDao extends DAO {
 			ps.setString(1, produto.getNome());
 			ps.setDouble(2, produto.getValor());
 			ps.setString(3, produto.getDescricao());
-			//ps.setLong(7, produto.getCategoria().getIdCategoria());Chave estrangeira
-			//ps.setLong(8, produto.getPlataforma().getIdPlataforma());Chave estrangeira
 			ps.executeUpdate();
 
 		} catch (SQLException ex) {
@@ -56,8 +54,9 @@ public class ProdutoDao extends DAO {
 
 	public void excluir(Integer id) {
 		try {
-			PreparedStatement ps = getConnection().prepareStatement(DELETE);
-			ps.setLong(1, id);
+			PreparedStatement ps = null;
+			ps = getConnection().prepareStatement(DELETE);
+			ps.setInt(1, id);
 			ps.executeUpdate();
 		} catch (SQLException ex) {
 			System.out.println("Erro a executar o delete: " + ex);

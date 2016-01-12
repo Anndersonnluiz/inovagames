@@ -1,9 +1,14 @@
 package br.senai.sc.tii2014n1.inovagames.managebean;
 
+import java.sql.SQLException;
+
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
+import br.senai.sc.tii2014n1.inovagames.dao.UserDao;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.User;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.UserRN;
 
@@ -39,6 +44,23 @@ public class SessaoMB {
 		}
 		return "";
 	}
+	
+	public String validarUsuario(){
+		UserRN userRN = new UserRN();
+		User usuarioBanco = userRN.buscaPorEmail(usuarioForm.getEmail());
+        if ((usuarioBanco.getEmail()==null) && (usuarioBanco.getSenha()==null)){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Acesso Nrgado."));
+        }else{
+            String senha = "";
+            usuarioForm.setSenha(senha);
+            usuarioBanco.setSenha("");
+			usuarioLogado = usuarioBanco;
+			return "index";
+        }
+        usuarioLogado = usuarioBanco;
+        usuarioBanco = new User();
+        return "index";
+    }
 	
 	public String sair(){
 		usuarioLogado = null;

@@ -57,9 +57,7 @@
 			<h:inputText  value="#{sessaoMB.usuarioForm.email}" size="20" />
 			<h:outputLabel value="Senha:"/>
 			<h:inputText value="#{sessaoMB.usuarioForm.senha}" size="20" />
-			<h:commandButton type="submit" class="btn btn-default"
-								action="#{sessaoMB.entrar()}"
-								value="Entrar" />
+			<h:commandButton action="#{sessaoMB.entrar()}" value="Entrar" />
 		</h:panelGrid>
 			<br/>
 			<h:link outcome="/login" style="color:white;">Cadastre-se</h:link>
@@ -116,9 +114,12 @@
 		<br/><br/><br/><br/><br/><br/>
 	<div id="rodape" >
 		<br/>
-		<a type="button"  data-toggle="modal" data-target="#myModal" style="margin-left: 2%;"> Fale Conosco </a>
-		
-		<br/><br/><br/><br/><br/>
+		<a type="button"  data-toggle="modal" data-target="#myModal" style="margin-left: 2%;color: black;"> Fale Conosco</a>
+		<br/>
+		<h:link outcome="/duvidas" style="color:black; margin-left: 2%;">Perguntas Frequentes</h:link>
+		<br/>
+		<h:link outcome="/historia" style="color:black; margin-left: 2%;">Sobre Inova Games</h:link>
+		<br/><br/><br/>
 			<b style="margin-left: 40%;">&copy; Todos os direitos reservados. &reg;</b>	
 	</div>
 	</div>
