@@ -15,7 +15,7 @@ public class PlataformaRN {
 	}
 	 
 	 public void salvar(Plataforma plataforma) throws Exception{
-		 if (plataforma.getPlataforma().equalsIgnoreCase("")) {
+		 if (plataforma.getNomeplataforma().equalsIgnoreCase("")) {
 			 throw new Exception("O nome da plataforma 'e obrigatorio!!");
 		}
 		 
@@ -23,8 +23,8 @@ public class PlataformaRN {
 		  
 	 }
 	 
-	 public List<Plataforma> listar(){
-			return Dao.listarTodos();
+	 public List<Plataforma> listar(String sql){
+			return Dao.listarTodos(sql);
 		}
 		
 		public Plataforma buscarPorId(int id) {

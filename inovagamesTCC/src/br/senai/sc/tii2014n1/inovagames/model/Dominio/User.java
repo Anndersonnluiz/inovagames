@@ -80,15 +80,29 @@ public class User {
 
 
 
-	public User(Integer id, String nome, String email, String cpf, String senha, String tipoAcesso) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.cpf = cpf;
-		this.senha = senha;
-		this.tipoAcesso = tipoAcesso;
-	}
-	
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof User)) {
+            return false;
+        }
+        User other = (User) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "br.senai.sc.tii2014n1.inovagames.model.Dominio.User[ id=" + id + " ]";
+    }
 	
 }

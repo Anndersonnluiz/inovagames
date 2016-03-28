@@ -65,10 +65,10 @@ public class ProdutoDao extends DAO {
 		}
 	}
 
-	public List<Produto> listarTodos() {
+	public List<Produto> listarTodos(String sql) {
 		List<Produto> produtos = new ArrayList<Produto>();
 		try {
-			PreparedStatement ps = getConnection().prepareStatement(SELECT);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ResultSet rs = null;
 			rs = ps.executeQuery();
 
@@ -78,14 +78,6 @@ public class ProdutoDao extends DAO {
 				produto.setValor(rs.getDouble("Valor"));
 				produto.setDescricao(rs.getString("Descricao"));
 				produto.setIdProduto(rs.getInt("idProduto"));
-
-				//CategoriaDao categoriaDao = DAOFactory.getCategoriaDao();
-				//produto.setCategoria(categoriaDao.buscarPorId(rs
-						//.getLong("idCategoria")));// chave estrangeira
-
-				//PlataformaDao plataformaDao = DAOFactory.getPlataformaDao();
-				//produto.setPlataforma(plataformaDao.buscarPorId(rs
-						//.getLong("idPlataforma")));// chave estrangeira
 				produtos.add(produto);
 			}
 		} catch (SQLException ex) {

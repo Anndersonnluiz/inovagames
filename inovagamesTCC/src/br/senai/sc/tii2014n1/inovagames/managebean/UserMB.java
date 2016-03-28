@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.User;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.UserRN;
+import br.senai.sc.tii2014n1.inovagames.util.Criptografia;
 
 
 @ManagedBean
@@ -70,6 +71,8 @@ public class UserMB {
 		FacesMessage message = null;
 		try {
 			user.setTipoAcesso("usuario");
+			String senha  = user.getSenha();
+			user.setSenha(Criptografia.encript(senha));
 			userRN.salvar(user);
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO,
 					"Cadastro feito com sucesso!", "");

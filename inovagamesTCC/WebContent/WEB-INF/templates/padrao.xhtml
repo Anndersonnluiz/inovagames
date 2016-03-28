@@ -2,7 +2,8 @@
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -51,16 +52,15 @@
 		
 	<div id="corpoDosite">
 		<div id="cabecalho1">
-		<img src="img/Untitled-1.jpg"  width="100%;"/>
-		<h:panelGrid rendered="#{!sessaoMB.estaLogado()}" columns="5">
-			<h:outputLabel value="Email:"/>
-			<h:inputText  value="#{sessaoMB.usuarioForm.email}" size="20" />
-			<h:outputLabel value="Senha:"/>
-			<h:inputText value="#{sessaoMB.usuarioForm.senha}" size="20" />
-			<h:commandButton action="#{sessaoMB.entrar()}" value="Entrar" />
-		</h:panelGrid>
-			<br/>
-			<h:link outcome="/login" style="color:white;">Cadastre-se</h:link>
+			<h:panelGrid>
+				<img src="img/cabecalhoinova.png"  width="100%;"/>
+			</h:panelGrid>
+			<h:panelGrid style="margin-top:-3%; margin-left:2%;">
+				<p:commandLink action="#{principalMB.entrar()}">
+					<h:outputText  value="Cadastre-se" style="color:white;"/>
+				</p:commandLink>
+			</h:panelGrid>
+			<br />
 		</div>
 		<div class="menu">	
 			

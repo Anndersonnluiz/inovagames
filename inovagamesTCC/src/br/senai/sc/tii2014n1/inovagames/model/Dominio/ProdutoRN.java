@@ -21,8 +21,8 @@ public class ProdutoRN {
 		  
 	 }
 	 
-	 public List<Produto> listar(){
-			return Dao.listarTodos();
+	 public List<Produto> listar(String sql){
+			return Dao.listarTodos(sql);
 		}
 		
 		public Produto buscarPorId(int id) {

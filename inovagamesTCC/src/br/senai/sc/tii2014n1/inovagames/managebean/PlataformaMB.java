@@ -1,29 +1,70 @@
 package br.senai.sc.tii2014n1.inovagames.managebean;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.Plataforma;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.PlataformaRN;
+import br.senai.sc.tii2014n1.inovagames.model.Dominio.Produto;
+import br.senai.sc.tii2014n1.inovagames.model.Dominio.ProdutoRN;
 
-@ManagedBean(name = "plataformaBean")
+@ManagedBean
 @SessionScoped
-public class PlataformaMB {
+public class PlataformaMB implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Plataforma plataforma;
 	private PlataformaRN plataformaRN;
 	private Plataforma plataformaSelecionado;
 	private List<Plataforma> plataformas;
+	private String nomePlataforma;
+	private List<Produto> listaProduto;
+	
 
 	@PostConstruct
 	public void init() {
 		plataformaRN = new PlataformaRN();
 		plataforma = new Plataforma();
+		gerarListaPlataforma();
 	}
+	
+	
+
+	public List<Produto> getListaProduto() {
+		return listaProduto;
+	}
+
+
+
+	public void setListaProduto(List<Produto> listaProduto) {
+		this.listaProduto = listaProduto;
+	}
+
+
+
+	public String getNomePlataforma() {
+		return nomePlataforma;
+	}
+
+
+
+	public void setNomePlataforma(String nomePlataforma) {
+		this.nomePlataforma = nomePlataforma;
+	}
+
+
 
 	public Plataforma getPlataforma() {
 		return plataforma;
@@ -42,9 +83,6 @@ public class PlataformaMB {
 	}
 
 	public List<Plataforma> getPlataformas() {
-		if (plataformas == null) {
-			plataformas = plataformaRN.listar();
-		}
 		return plataformas;
 	}
 
@@ -103,5 +141,36 @@ public class PlataformaMB {
 	public String voltar() {
 		return "listarPlataformas";
 	}
+	
+	public void pesquisar(){
+		String sql = "Select * From Produto JOIN Plataforma on Produto.plataforma.idplataforma=Plataforma.idplataforma"
+				+ " Where Produto.plataforma.idplataforma=" + plataforma;
+		ProdutoRN produtoRN = new ProdutoRN();
+		listaProduto = produtoRN.listar(sql);
+		if (listaProduto == null) {
+			listaProduto = new  ArrayList<Produto>();
+		}
+		
+	}
+	
+	public void gerarListaPlataforma() {
+        PlataformaRN plataformaRN = new PlataformaRN();
+        try {
+            plataformas = plataformaRN.listar("Select * from Plataforma ");
+            if (plataformas == null) {
+                plataformas = new ArrayList<Plataforma>();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PlataformaMB.class.getName()).log(Level.SEVERE, null, ex);
+            mostrarMensagem(ex, "Erro ao gerar a lista de plataforma", "Erro");
+        }
+        
+    }
+	
+	public void mostrarMensagem(Exception ex, String erro, String titulo){
+        FacesContext context = FacesContext.getCurrentInstance();
+        erro = erro + " - " + ex;
+        context.addMessage(null, new FacesMessage(titulo, erro));
+    }
 
 }

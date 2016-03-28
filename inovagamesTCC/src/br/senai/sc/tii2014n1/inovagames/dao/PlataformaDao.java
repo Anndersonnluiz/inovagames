@@ -20,7 +20,7 @@ public class PlataformaDao extends DAO {
 	public void salvar(Plataforma plataforma) {
 		try {
 			PreparedStatement ps = getConnection().prepareStatement(INSERT);
-			ps.setString(1, plataforma.getPlataforma());
+			ps.setString(1, plataforma.getNomeplataforma());
 			ps.executeUpdate();
 		} catch (SQLException ex) {
 			System.out.println("Erro ao executar o insert: " + ex);
@@ -33,7 +33,7 @@ public class PlataformaDao extends DAO {
 	public void alterar(Plataforma plataforma) {
 		try {
 			PreparedStatement ps = getConnection().prepareStatement(UPDATE);
-			ps.setString(1, plataforma.getPlataforma());
+			ps.setString(1, plataforma.getNomeplataforma());
 			ps.setLong(2, plataforma.getIdPlataforma());
 			ps.executeUpdate();
 		} catch (SQLException ex) {
@@ -57,16 +57,16 @@ public class PlataformaDao extends DAO {
 	}
 
 	
-	public List<Plataforma> listarTodos() {
+	public List<Plataforma> listarTodos(String sql) {
 		List<Plataforma> plataformas = new ArrayList<Plataforma>();
 		try {
-			PreparedStatement ps = getConnection().prepareStatement(SELECT);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ResultSet rs = null;
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Plataforma plataforma = new Plataforma();
 				plataforma.setIdPlataforma(rs.getInt("idPlataforma"));
-				plataforma.setPlataforma(rs.getString("Plataforma"));
+				plataforma.setNomeplataforma(rs.getString("nomePlataforma"));
 				plataformas.add(plataforma);
 			}
 		} catch (SQLException ex) {
@@ -88,8 +88,8 @@ public class PlataformaDao extends DAO {
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				plataforma = new Plataforma();
-				plataforma.setIdPlataforma(rs.getLong("idPlataforma"));
-				plataforma.setPlataforma(rs.getString("Plataforma"));
+				plataforma.setIdPlataforma(rs.getInt("idPlataforma"));
+				plataforma.setNomeplataforma(rs.getString("nomePlataforma"));
 			}
 		} catch (SQLException ex) {
 			System.out.println("Erro ao executar o select por id: " + ex);

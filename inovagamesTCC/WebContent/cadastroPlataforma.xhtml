@@ -25,17 +25,12 @@
 							<h:form>
 						<h:messages />
 						<h:panelGrid columns="7" style="margin-left: 30%;">
-							<h:selectOneMenu id="plataforma_id"
-								value="#{plataformaBean.plataforma.plataforma}">
-								<f:selectItem itemLabel="Plataforma" itemValue="plataforma" />
-								<f:selectItem itemLabel="Ps4" itemValue="Ps4" />
-								<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-								<f:selectItem itemLabel="Ps3" itemValue="Ps3" />
-								<f:selectItem itemLabel="Xbox 360" itemValue="Xbox 360" />
-								<f:selectItem itemLabel="Ps Vita" itemValue="Ps Vita" />
-								<f:selectItem itemLabel="3ds" itemValue="3ds" />
-								<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-							</h:selectOneMenu>
+				                <h:selectOneMenu  id="plataforma"  style="width: 100px;margin-left: 2%"  value="#{plataformaMB.nomePlataforma}" converter="PlataformaConverter"
+				                             filter="true" filterMatchMode="startsWith" panelStyle="width:180px">
+				                    <f:selectItem  itemLabel="Plataforma" itemValue="0" noSelectionOption="true"/> 
+				                    <f:selectItems  value="#{plataformaMB.plataformas}" var="plataformaselecionada" itemLabel="#{plataformaselecionada.nomeplataforma}" itemValue="#{plataformaselecionada}"/>
+				                    <f:attribute name="plataformas" value="#{plataformaMB.plataformas}"/>
+				                </h:selectOneMenu> 
 							
 								<h:selectOneMenu id="produtos_id"
 								value="#" style="margin-left: 50px;">
@@ -55,6 +50,7 @@
 								<img src="img/pesquisar.png" width="50px;" height="50px" />
 							</h:commandLink>	
 						</h:panelGrid>
+						
 					</h:form>
 						</div>
 					</div>

@@ -1,5 +1,6 @@
 package br.senai.sc.tii2014n1.inovagames.managebean;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 
 import javax.annotation.PostConstruct;
@@ -7,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 
 import br.senai.sc.tii2014n1.inovagames.dao.UserDao;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.User;
@@ -14,8 +16,12 @@ import br.senai.sc.tii2014n1.inovagames.model.Dominio.UserRN;
 
 
 @ManagedBean
-@SessionScoped
-public class SessaoMB {
+@ViewScoped
+public class SessaoMB implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private User usuarioLogado;
 	private User usuarioForm;
 	
