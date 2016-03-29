@@ -37,4 +37,8 @@ public class UserRN {
 		public List<User> listar(){
 			return Dao.listarTodos();
 		}
+		
+		public void excluir(Integer id) throws Exception{
+			Dao.excluir(id);
+		}
 }

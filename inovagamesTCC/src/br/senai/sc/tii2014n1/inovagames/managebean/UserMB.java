@@ -1,5 +1,6 @@
 package br.senai.sc.tii2014n1.inovagames.managebean;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -7,17 +8,25 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
+
+import br.senai.sc.tii2014n1.inovagames.model.Dominio.Cliente;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.User;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.UserRN;
 import br.senai.sc.tii2014n1.inovagames.util.Criptografia;
 
 
 @ManagedBean
-@SessionScoped
-public class UserMB {
+@ViewScoped
+public class UserMB implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private User user;
 	private UserRN userRN;
 	private List<User> users;
+	private User userSelecionado;
 	
 	@PostConstruct
 	public void init(){
@@ -28,6 +37,20 @@ public class UserMB {
 		}
 	}
 	
+	
+	
+	public User getUserSelecionado() {
+		return userSelecionado;
+	}
+
+
+
+	public void setUserSelecionado(User userSelecionado) {
+		this.userSelecionado = userSelecionado;
+	}
+
+
+
 	public User getUser() {
 		return user;
 	}
@@ -88,5 +111,25 @@ public class UserMB {
 
 	
 	}
+	
+	public String alterar(User clienteSelecionado) {
+		user = clienteSelecionado;
+		return "cadastroCliente";
+	}
+
+	public String excluir(String idParam) {
+		int id = Integer.parseInt(idParam);
+		try {
+			userRN.excluir(id);
+			users.remove(userSelecionado);
+			userSelecionado = null;
+			FacesContext.getCurrentInstance().addMessage(
+					null,new FacesMessage(FacesMessage.SEVERITY_INFO,"Cliente removido com sucesso!", ""));
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+		}
 	
 }

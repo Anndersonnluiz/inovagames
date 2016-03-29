@@ -3,18 +3,22 @@ package br.senai.sc.tii2014n1.inovagames.managebean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 
+import br.senai.sc.tii2014n1.inovagames.model.Dominio.Plataforma;
+import br.senai.sc.tii2014n1.inovagames.model.Dominio.PlataformaRN;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.Produto;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.ProdutoRN;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class ProdutoMB implements Serializable{
 	/**
 	 * 
@@ -24,6 +28,8 @@ public class ProdutoMB implements Serializable{
 	private ProdutoRN produtoRN;
 	private Produto produtoSelecionado;
 	private List<Produto> produtos;
+	private Plataforma plataforma;
+	private List<Plataforma> listaPlataformas;
 
 	@PostConstruct
 	public void init() {
@@ -32,7 +38,52 @@ public class ProdutoMB implements Serializable{
 			produto = new Produto();
 		}
 		gerarListaProduto();
+		gerarListaPlataforma();
 	}
+	
+	
+
+	public List<Plataforma> getListaPlataformas() {
+		return listaPlataformas;
+	}
+
+
+
+	public void setListaPlataformas(List<Plataforma> listaPlataformas) {
+		this.listaPlataformas = listaPlataformas;
+	}
+
+
+
+	public ProdutoRN getProdutoRN() {
+		return produtoRN;
+	}
+
+
+
+	public void setProdutoRN(ProdutoRN produtoRN) {
+		this.produtoRN = produtoRN;
+	}
+
+
+
+	public Plataforma getPlataforma() {
+		return plataforma;
+	}
+
+
+
+	public void setPlataforma(Plataforma plataforma) {
+		this.plataforma = plataforma;
+	}
+
+
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
+
 
 	public Produto getProduto() {
 		return produto;
@@ -74,9 +125,7 @@ public class ProdutoMB implements Serializable{
 		return "cadastroProduto";
 	}
 
-	public String alterar() {
-		produto = produtoSelecionado;
-		produtoSelecionado = null;
+	public String alterar(Produto produto) {
 		return "/administradores";
 	}
 
@@ -113,5 +162,25 @@ public class ProdutoMB implements Serializable{
 			produtos = new ArrayList<Produto>();
 		}
 	}
+	
+	public void gerarListaPlataforma() {
+        PlataformaRN plataformaRN = new PlataformaRN();
+        try {
+            listaPlataformas = plataformaRN.listar("Select * from Plataforma ");
+            if (listaPlataformas == null) {
+            	listaPlataformas = new ArrayList<Plataforma>();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PlataformaMB.class.getName()).log(Level.SEVERE, null, ex);
+            mostrarMensagem(ex, "Erro ao gerar a lista de plataforma", "Erro");
+        }
+        
+    }
+	
+	public void mostrarMensagem(Exception ex, String erro, String titulo){
+        FacesContext context = FacesContext.getCurrentInstance();
+        erro = erro + " - " + ex;
+        context.addMessage(null, new FacesMessage(titulo, erro));
+    }
 
 }

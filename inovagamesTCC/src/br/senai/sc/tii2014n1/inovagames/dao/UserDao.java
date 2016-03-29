@@ -13,6 +13,7 @@ public class UserDao extends DAO{
 	private final String SELECT_EMAIL = "SELECT * FROM user WHERE email = ?";	
 	private final String SELECT_ACESSO = "SELECT * FROM user WHERE tipoAcesso = master";
 	private final String SELECT = "SELECT * FROM user";
+	private final String DELETE = "DELETE FROM cliente WHERE idCliente = ?";
 	
 	
 	private User parseUser(ResultSet rs) throws SQLException {
@@ -94,6 +95,18 @@ public class UserDao extends DAO{
 			getConnection();
 		}
 		return users;
+	}
+	
+	public void excluir(Integer id) {
+		try {
+			PreparedStatement ps = getConnection().prepareStatement(DELETE);
+			ps.setLong(1, id);
+			ps.executeUpdate();
+		} catch (SQLException ex) {
+			System.out.println("Erro a executar o delete: " + ex);
+		} finally {
+			getConnection();
+		}
 	}
 	
 

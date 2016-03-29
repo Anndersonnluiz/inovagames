@@ -4,14 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 	<ui:composition template="/WEB-INF/templates/padrao.xhtml">
 		<ui:define name="conteudo">
 		<div style="background-color: white;">
 			<h:form >
 				<h:messages />
-				<h:dataTable class = "table table-listrado" border="1" value="#{produtoMB.produtos}" var="produto" >
+				
+				<h:dataTable id="idTabListaProduto" class = "table table-listrado" border="1" value="#{produtoMB.produtos}" var="produto" >
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="Nome:" />
@@ -33,14 +35,14 @@
 		
 		
 					<h:column>
-						<h:commandLink action="#{produtoMB.alterar}" value="Alterar"
+						<p:commandLink ajax="false"  action="#{produtoMB.alterar(produto)}" value="Alterar"
 							title="Alterar" style="color:orange;">
-						</h:commandLink>
+						</p:commandLink>
 					</h:column>
 					<h:column>
 		
-						<h:commandLink action="#{produtoMB.excluir(produtos.idProduto)}" value="Excluir"
-							 style="color:orange;"/>
+						<p:commandLink ajax="false" action="#{produtoMB.excluir(produtoMB.produto.idProduto)}" value="Excluir"
+							 style="color:orange;" update="idTabListaProduto"/>
 					
 					</h:column>
 				</h:dataTable>

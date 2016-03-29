@@ -1,5 +1,6 @@
 package br.senai.sc.tii2014n1.inovagames.managebean;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -7,13 +8,18 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.Cliente;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.ClienteRN;
 
-@ManagedBean()
-@SessionScoped
-public class ClienteMB {
+@ManagedBean
+@ViewScoped
+public class ClienteMB implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Cliente cliente;
 	private ClienteRN clienteRN;
 	private Cliente clienteSelecionado;
@@ -22,7 +28,9 @@ public class ClienteMB {
 	@PostConstruct
 	public void init() {
 		clienteRN = new ClienteRN();
-		cliente = new Cliente();
+		if (cliente == null) {
+			cliente = new Cliente();
+		}
 	}
 
 	public Cliente getCliente() {
@@ -73,9 +81,8 @@ public class ClienteMB {
 		return "cadastroCliente";
 	}
 
-	public String alterar() {
+	public String alterar(Cliente clienteSelecionado) {
 		cliente = clienteSelecionado;
-		clienteSelecionado = null;
 		return "cadastroCliente";
 	}
 

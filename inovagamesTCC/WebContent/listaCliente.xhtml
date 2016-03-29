@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 	<ui:composition template="/WEB-INF/templates/padrao.xhtml">
 		<ui:define name="conteudo">
@@ -37,18 +38,17 @@
 						<h:outputText value="#{user.tipoAcesso}" />
 					</h:column>
 					<h:column>
-						<h:commandLink action="#{produtoLancamentoMB.alterar}" value="Alterar"
+						<p:commandLink ajax="false" action="#{userMB.alterar(user)}" value="Alterar"
 							title="Alterar" style="color:orange;">
 							<f:setPropertyActionListener
-								target="#{produtoLancamentoMB.produtoLancamentoSelecionado}" value="#{produtoLancamento}" />
-						</h:commandLink>
+								target="#{userMB.userSelecionado}" value="#{user}" />
+						</p:commandLink>
 					</h:column>
 					<h:column>
-						<h:commandLink action="#{produtoLancamentoMB.excluir()}" value="Excluir"
+						<p:commandLink ajax="false" action="#{userMB.excluir()}" value="Excluir"
 							title="Excluir" style="color:orange;">
-							<f:setPropertyActionListener
-								target="#{produtoLancamentoMB.produtoLancamentoSelecionado}" value="#{produtoLancamento}" />
-						</h:commandLink>
+							
+						</p:commandLink>
 					</h:column>
 				</h:dataTable>
 			</h:form>
