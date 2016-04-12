@@ -1,5 +1,10 @@
 package br.senai.sc.tii2014n1.inovagames.model.Dominio;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
 public class User {
 	private Integer id;
 	private String nome;

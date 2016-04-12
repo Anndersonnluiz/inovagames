@@ -4,12 +4,16 @@ import java.io.Serializable;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="produto")
 public class Produto implements Serializable{
 
 
@@ -36,19 +40,6 @@ public class Produto implements Serializable{
 
 	}
 
-	public Produto(int idProduto, int codigoDeBarras, String nome,
-			Double valor, String marca, int quantidade, String descricao, Plataforma plataforma) {
-		super();
-		this.idProduto = idProduto;
-		this.nome = nome;
-		this.valor = valor;
-		this.descricao = descricao;
-		this.plataforma = plataforma;
-	}
-
-	
-
-	
 
 	public Plataforma getPlataforma() {
 		return plataforma;

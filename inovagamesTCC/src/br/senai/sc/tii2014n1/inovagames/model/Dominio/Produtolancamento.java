@@ -1,5 +1,8 @@
 package br.senai.sc.tii2014n1.inovagames.model.Dominio;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Produtolancamento {
 
 	private Integer id;

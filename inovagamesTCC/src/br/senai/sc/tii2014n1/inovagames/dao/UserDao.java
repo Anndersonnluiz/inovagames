@@ -5,15 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.jws.soap.SOAPBinding.Use;
+import javax.persistence.EntityManager;
+
+import br.senai.sc.tii2014n1.inovagames.connection.ConectionFactory;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.User;
 
 
 public class UserDao extends DAO{
-	private final String INSERT = "INSERT INTO user (nome, email, cpf, senha, tipoAcesso) VALUES (?,?,?,?, ?)";
 	private final String SELECT_EMAIL = "SELECT * FROM user WHERE email = ?";	
 	private final String SELECT_ACESSO = "SELECT * FROM user WHERE tipoAcesso = master";
 	private final String SELECT = "SELECT * FROM user";
-	private final String DELETE = "DELETE FROM cliente WHERE idCliente = ?";
 	
 	
 	private User parseUser(ResultSet rs) throws SQLException {
@@ -56,21 +59,14 @@ public class UserDao extends DAO{
 		return null;
 	}
 	
-	public void salvar(User user) {
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(INSERT);
-			ps.setString(1, user.getNome());
-			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getCpf());
-			ps.setString(4, user.getSenha());
-			ps.setString(5, user.getTipoAcesso());
-			ps.executeUpdate();
-
-		} catch (SQLException ex) {
-			System.out.println("Erro ao executar o insert: " + ex);
-		} finally {
-			getConnection();
-		}
+	
+	public User salvar(User user){
+		EntityManager em = ConectionFactory.getConnection();
+		em.getTransaction().begin();
+		user = em.merge(user);
+		em.getTransaction().commit();
+		em.close();
+		return user;
 	}
 	
 	public List<User> listarTodos() {
@@ -97,17 +93,14 @@ public class UserDao extends DAO{
 		return users;
 	}
 	
-	public void excluir(Integer id) {
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(DELETE);
-			ps.setLong(1, id);
-			ps.executeUpdate();
-		} catch (SQLException ex) {
-			System.out.println("Erro a executar o delete: " + ex);
-		} finally {
-			getConnection();
-		}
-	}
 	
+	public void excluir(Integer id){
+		EntityManager em = ConectionFactory.getConnection();
+		em.getTransaction().begin();
+		User user = em.find(User.class, id);
+		em.remove(user);
+		em.getTransaction().commit();
+		em.close();
+	}
 
 }
