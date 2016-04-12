@@ -27,6 +27,7 @@ public class UserMB implements Serializable{
 	private UserRN userRN;
 	private List<User> users;
 	private User userSelecionado;
+	private String sql;
 	
 	@PostConstruct
 	public void init(){
@@ -39,6 +40,18 @@ public class UserMB implements Serializable{
 	
 	
 	
+	public String getSql() {
+		return sql;
+	}
+
+
+
+	public void setSql(String sql) {
+		this.sql = sql;
+	}
+
+
+
 	public User getUserSelecionado() {
 		return userSelecionado;
 	}
@@ -77,7 +90,7 @@ public class UserMB implements Serializable{
 
 	public List<User> getUsers() {
 		if (users == null) {
-			users = userRN.listar();
+			users = userRN.listar(sql);
 		} 
 		return users;
 	}

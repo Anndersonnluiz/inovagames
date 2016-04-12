@@ -1,101 +1,55 @@
 package br.senai.sc.tii2014n1.inovagames.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import br.senai.sc.tii2014n1.inovagames.connection.ConectionFactory;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.Plataforma;
 
-public class PlataformaDao extends DAO {
+public class PlataformaDao  {
 
-	private final String INSERT = "INSERT INTO plataforma (plataforma) VALUES (?)";
-	private final String UPDATE = "UPDATE plataforma SET plataforma = ? WHERE idPlataforma = ?";
-	private final String DELETE = "DELETE FROM plataforma WHERE idPlataforma = ?";
-	private final String SELECT = "SELECT * FROM plataforma";
-	private final String SELECT_ID = "SELECT * FROM plataforma WHERE idPlataforma = ?";
 
 	
-	public void salvar(Plataforma plataforma) {
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(INSERT);
-			ps.setString(1, plataforma.getNomeplataforma());
-			ps.executeUpdate();
-		} catch (SQLException ex) {
-			System.out.println("Erro ao executar o insert: " + ex);
-		} finally {
-			getConnection();
-		}
+	public Plataforma salvar(Plataforma plataforma){
+		EntityManager em = ConectionFactory.getConnection();
+		em.getTransaction().begin();
+		plataforma = em.merge(plataforma);
+		em.getTransaction().commit();
+		em.close();
+		return plataforma;
 	}
 
 	
-	public void alterar(Plataforma plataforma) {
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(UPDATE);
-			ps.setString(1, plataforma.getNomeplataforma());
-			ps.setLong(2, plataforma.getIdPlataforma());
-			ps.executeUpdate();
-		} catch (SQLException ex) {
-			System.out.println("Erro ao executar o update: " + ex);
-		} finally {
-			getConnection();
-		}
+	public void excluir(int id){
+		EntityManager em = ConectionFactory.getConnection();
+		em.getTransaction().begin();
+		Plataforma plataforma = em.find(Plataforma.class, id);
+		em.remove(plataforma);
+		em.getTransaction().commit();
+		em.close();
 	}
 
 	
-	public void excluir(Integer id) {
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(DELETE);
-			ps.setLong(1, id);
-			ps.executeUpdate();
-		} catch (SQLException ex) {
-			System.out.println("Erro ao executar o delete: " + ex);
-		} finally {
-			getConnection();
+	public List<Plataforma> listar(String sql){
+		EntityManager em = ConectionFactory.getConnection();
+		if (sql == null) {
+			sql = "Select * from Plataforma";
 		}
-	}
-
-	
-	public List<Plataforma> listarTodos(String sql) {
-		List<Plataforma> plataformas = new ArrayList<Plataforma>();
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ResultSet rs = null;
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				Plataforma plataforma = new Plataforma();
-				plataforma.setIdPlataforma(rs.getInt("idPlataforma"));
-				plataforma.setNomeplataforma(rs.getString("nomePlataforma"));
-				plataformas.add(plataforma);
-			}
-		} catch (SQLException ex) {
-			System.out.println("Erro ao executar o select da plataforma: " + ex);
-		} finally {
-			getConnection();
-		}
-		return plataformas;
+		Query query = em.createQuery(sql);
+		List<Plataforma> listarPlataforma = query.getResultList();
+		em.close();
+		return listarPlataforma;		
 	}
 
 	
 	
-	public Plataforma buscarPorId(long id) {
-		Plataforma plataforma = null;
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(SELECT_ID);
-			ResultSet rs = null;
-			ps.setLong(1, id);
-			rs = ps.executeQuery();
-			if (rs.next()) {
-				plataforma = new Plataforma();
-				plataforma.setIdPlataforma(rs.getInt("idPlataforma"));
-				plataforma.setNomeplataforma(rs.getString("nomePlataforma"));
-			}
-		} catch (SQLException ex) {
-			System.out.println("Erro ao executar o select por id: " + ex);
-		} finally {
-			getConnection();
-		}
+	public Plataforma consultarPorId(int id){
+		EntityManager em = ConectionFactory.getConnection();
+		Plataforma plataforma = em.find(Plataforma.class, id);
+		em.close();
 		return plataforma;
 	}
 

@@ -2,83 +2,45 @@ package br.senai.sc.tii2014n1.inovagames.dao;
 
 
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import br.senai.sc.tii2014n1.inovagames.connection.ConectionFactory;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.Produtolancamento;
 
-public class ProdutoLancamentoDao extends DAO{
+public class ProdutoLancamentoDao{
+	
 
-	private final String INSERT = "INSERT INTO produtolancamento (nome, valor) VALUES (?,?)";
-	private final String UPDATE = "UPDATE produtolancamento SET nome = ?, valor = ?  WHERE id = ?";
-	private final String SELECT = "SELECT * FROM produtolancamento";
-	private final String DELETE = "DELETE FROM produtolancamento WHERE id = ?";
 	
-	public void salvar(Produtolancamento produtoLancamento){
-		
-			PreparedStatement ps;
-			try {
-				ps = getConnection().prepareStatement(INSERT);
-				ps.setString(1, produtoLancamento.getNome());
-				ps.setDouble(2, produtoLancamento.getValor());
-				ps.executeUpdate();
-			} catch (SQLException e) {
-				System.out.println("Erro ao executar o insert: " + e);
-				e.printStackTrace();
-			} finally {
-				getConnection();
-			}
-			
-		
+	public Produtolancamento salvar(Produtolancamento produtolancamento){
+		EntityManager em = ConectionFactory.getConnection();
+		em.getTransaction().begin();
+		produtolancamento = em.merge(produtolancamento);
+		em.getTransaction().commit();
+		em.close();
+		return produtolancamento;
 	}
 	
-	public void Editar(Produtolancamento produtoLancamento){
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(UPDATE);
-			ps.setString(1, produtoLancamento.getNome());
-			ps.setDouble(2, produtoLancamento.getValor());
-			ps.setInt(3, produtoLancamento.getId());
-			ps.executeUpdate();
-		} catch (Exception e) {
-			// TODO: handle exception
+	public List<Produtolancamento> listar(String sql){
+		EntityManager em = ConectionFactory.getConnection();
+		if (sql == null) {
+			sql = "Select * from Produtolancamento";
 		}
+		Query query = em.createQuery(sql);
+		List<Produtolancamento> listaProdutoLancamento = query.getResultList();
+		em.close();
+		return listaProdutoLancamento;
 	}
 	
-	public List<Produtolancamento> listarTodos() {
-		List<Produtolancamento> produtoLancamentos = new ArrayList<Produtolancamento>();
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(SELECT);
-			ResultSet rs = null;
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				Produtolancamento produtoLancamento = new Produtolancamento();
-				produtoLancamento.setNome(rs.getString("Nome"));
-				produtoLancamento.setValor(rs.getDouble("Valor"));
-				produtoLancamento.setId(rs.getInt("id"));
-				produtoLancamentos.add(produtoLancamento);
-			}
-		} catch (SQLException ex) {
-			System.out.println("Erro ao executar o select do ProdutoLancamento: " + ex);
-		} finally {
-			getConnection();
-		}
-		return produtoLancamentos;
-	}
-	
-	public void excluir(Integer id) {
-		try {
-			PreparedStatement ps = getConnection().prepareStatement(DELETE);
-			ps.setLong(1, id);
-			ps.executeUpdate();
-		} catch (SQLException ex) {
-			System.out.println("Erro ao executar o delete: " + ex);
-		} finally {
-			getConnection();
-		}
+	public void excluir(int id){
+		EntityManager em = ConectionFactory.getConnection();
+		em.getTransaction().begin();
+		Produtolancamento produtolancamento = em.find(Produtolancamento.class, id);
+		em.remove(produtolancamento);
+		em.getTransaction().commit();
+		em.close();
 	}
 	
 	

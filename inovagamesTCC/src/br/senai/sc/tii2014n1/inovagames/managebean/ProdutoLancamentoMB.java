@@ -18,6 +18,7 @@ public class ProdutoLancamentoMB {
 	private List<Produtolancamento> produtoLancamentos;
 	private ProdutoLancamentoRN produtoLancamentoRN;
 	private Produtolancamento produtoLancamentoSelecionado;
+	private String sql;
 	
 	@PostConstruct
 	public void init(){
@@ -28,6 +29,20 @@ public class ProdutoLancamentoMB {
 			
 	}
 	
+	
+	
+	public String getSql() {
+		return sql;
+	}
+
+
+
+	public void setSql(String sql) {
+		this.sql = sql;
+	}
+
+
+
 	public Produtolancamento getProdutoLancamentoSelecionado() {
 		return produtoLancamentoSelecionado;
 	}
@@ -39,7 +54,7 @@ public class ProdutoLancamentoMB {
 
 	public List<Produtolancamento> getProdutoLancamentos() {
 		if (produtoLancamentos == null) {
-			produtoLancamentos = produtoLancamentoRN.listar();
+			produtoLancamentos = produtoLancamentoRN.listar(sql);
 		}
 		return produtoLancamentos;
 	}

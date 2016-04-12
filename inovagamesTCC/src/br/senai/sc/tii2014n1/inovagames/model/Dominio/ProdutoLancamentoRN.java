@@ -21,8 +21,8 @@ public class ProdutoLancamentoRN {
 		  
 	 }
 	
-	public List<Produtolancamento> listar(){
-		return dao.listarTodos();
+	public List<Produtolancamento> listar(String sql){
+		return dao.listar(sql);
 	}
 	
 	public void excluir(Integer id) throws Exception{

@@ -22,11 +22,11 @@ public class ProdutoRN {
 	 }
 	 
 	 public List<Produto> listar(String sql){
-			return Dao.listarTodos(sql);
+			return Dao.listar(sql);
 		}
 		
 		public Produto buscarPorId(int id) {
-			return Dao.buscarPorId(id);
+			return Dao.consultarPorId(id);
 		}
 		
 		public void excluir(Integer id) throws Exception{

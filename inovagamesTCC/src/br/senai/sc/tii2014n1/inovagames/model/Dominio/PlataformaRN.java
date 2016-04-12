@@ -24,11 +24,11 @@ public class PlataformaRN {
 	 }
 	 
 	 public List<Plataforma> listar(String sql){
-			return Dao.listarTodos(sql);
+			return Dao.listar(sql);
 		}
 		
 		public Plataforma buscarPorId(int id) {
-			return Dao.buscarPorId(id);
+			return Dao.consultarPorId(id);
 		}
 		
 		public void excluir(Integer id) throws Exception{

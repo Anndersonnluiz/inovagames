@@ -1,16 +1,37 @@
 package br.senai.sc.tii2014n1.inovagames.model.Dominio;
 
+import java.io.Serializable;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
-public class User {
+public class User implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
 	private Integer id;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "cpf")
 	private String cpf;
+	@Column(name = "senha")
 	private String senha;
+	@Column(name = "tipoAcesso")
 	private String tipoAcesso;
 	
 	

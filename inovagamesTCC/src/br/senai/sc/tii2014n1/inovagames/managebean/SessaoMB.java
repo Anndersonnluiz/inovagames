@@ -40,7 +40,7 @@ public class SessaoMB implements Serializable {
 	
 	public String entrar(){
 		UserRN userRN = new UserRN();
-		User usuarioBanco = userRN.buscaPorEmail(usuarioForm.getEmail());
+		User usuarioBanco = userRN.consultarPorEmail(usuarioForm.getEmail());
 		if (usuarioBanco != null
 				&& getUsuarioForm().getEmail().equalsIgnoreCase(usuarioBanco.getEmail())
 				&& getUsuarioForm().getSenha().equals(usuarioBanco.getSenha())) {
@@ -53,12 +53,12 @@ public class SessaoMB implements Serializable {
 	
 	public String validarUsuario(){
 		UserRN userRN = new UserRN();
-		User usuarioBanco = userRN.buscaPorEmail(usuarioForm.getEmail());
+		User usuarioBanco = userRN.consultarPorEmail(usuarioForm.getEmail());
         if ((usuarioBanco.getEmail()==null) && (usuarioBanco.getSenha()==null)){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Acesso Nrgado."));
-        }else{
+       }else{
             String senha = "";
-            usuarioForm.setSenha(senha);
+           usuarioForm.setSenha(senha);
             usuarioBanco.setSenha("");
 			usuarioLogado = usuarioBanco;
 			return "index";
@@ -79,7 +79,7 @@ public class SessaoMB implements Serializable {
 	
 	public Boolean tipoAcesso(){
 		UserRN userRN = new UserRN();
-		User usuarioBanco = userRN.buscaPorTipoAcesso(usuarioForm.getTipoAcesso());
+		User usuarioBanco = userRN.consultarPorTipoAcesso(usuarioForm.getTipoAcesso());
 		if (usuarioBanco != null
 				&& getUsuarioForm().getTipoAcesso().equalsIgnoreCase(usuarioBanco.getTipoAcesso())) {
 			

@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import br.senai.sc.tii2014n1.inovagames.connection.ConectionFactory;
 import br.senai.sc.tii2014n1.inovagames.model.Dominio.Produto;
 
-public class ProdutoDao extends DAO {
+public class ProdutoDao  {
 
 
 	

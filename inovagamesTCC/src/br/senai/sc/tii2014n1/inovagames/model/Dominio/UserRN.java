@@ -26,19 +26,24 @@ public class UserRN {
 		  
 	 }
 	 
-		public User buscaPorEmail(String email) {
-			return Dao.buscarPorEmail(email);
-		}
+	 public User consultarPorEmail(String email){
+		 return Dao.consultarPorEmail(email);
+	 }
+	 
+	 public User consultarPorId(int id){
+		 return Dao.consultarPorId(id);
+	 }
+	 
+	 public User consultarPorTipoAcesso(String tipoAcesso){
+		 return Dao.consultarPorTipoAcesso(tipoAcesso);
+	 }
 		
-		public User buscaPorTipoAcesso(String tipoAcesso) {
-			return Dao.buscarPorTipoAcesso(tipoAcesso);
-		}
 		
-		public List<User> listar(){
-			return Dao.listarTodos();
-		}
+	 public List<User> listar(String sql){
+		 return Dao.listar(sql);
+	 }
 		
-		public void excluir(Integer id) throws Exception{
-			Dao.excluir(id);
-		}
+	 public void excluir(Integer id) throws Exception{
+		 Dao.excluir(id);
+	 }
 }
