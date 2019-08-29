@@ -2,7 +2,8 @@ package br.senai.sc.tii2014n1.inovagames.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import sun.misc.BASE64Encoder;
+
+import Decoder.BASE64Encoder;
 
 
 
